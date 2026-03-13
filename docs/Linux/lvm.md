@@ -71,10 +71,10 @@ L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO né
 
 | Nom du Volume | Rôle principal                          | Stockage |
 | :------------ | :-------------------------------------- | -------- |
-| **lvroot**    | Volume pour la racine du système.       |          |
-| **lvhome**    | Volume pour les utilisateurs.           |          |
-| **lvvar**     | Volume pour les données variables/logs. |          |
-| **lvswap**    | Volume pour la mémoire virtuelle.       |          |
+| **lvroot**    | Volume pour la racine du système.       | 10GB     |
+| **lvhome**    | Volume pour les utilisateurs.           | 5GB      |
+| **lvvar**     | Volume pour les données variables/logs. | 5GB      |
+| **lvswap**    | Volume pour la mémoire virtuelle.       | 4GB      |
 
 6. Sélectionnez **Terminer** une fois tous les volumes créés.
 
@@ -99,4 +99,4 @@ L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO né
 ## 4. Ressources et Liens utiles
 
 * [Documentation officielle de Debian - Partitionnement](https://www.debian.org/doc/manuals/debian-handbook/sect.installation-steps.fr.html)
-* [[Sécurisation du Bootloader GRUB]]
+* [Documentation source Mr.Demouliere](https://qdemouliere.github.io/sisr1/documentation/Linux/02--Lvm/)
