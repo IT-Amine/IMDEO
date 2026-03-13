@@ -6,31 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Installer OpenSSH, se connecter à distance par clé cryptographique et sécuriser les accès.">
+        <meta name="description" content="Accéder à un terminal root minimal au démarrage pour réparer le système ou réinitialiser un mot de passe.">
       
       
       
       
-        <link rel="prev" href="../../Linux/secugrub/">
+        <link rel="prev" href="../index.html">
       
+      
+        <link rel="next" href="lvm.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>Configuration et Sécurisation du Serveur SSH - IMDEO Docs</title>
+        <title>Démarrage de secours via GRUB (Shell Root) - IMDEO Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration-et-securisation-du-serveur-ssh" class="md-skip">
+        <a href="#demarrage-de-secours-via-grub-shell-root" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration et Sécurisation du Serveur SSH
+              Démarrage de secours via GRUB (Shell Root)
             
           </span>
         </div>
@@ -216,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -233,11 +235,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Linux/grub/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="grub.html" class="md-tabs__link">
           
   
   
@@ -253,13 +257,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../Syst%C3%A8me/ssh.html" class="md-tabs__link">
           
   
   
@@ -293,7 +295,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -327,151 +329,6 @@
   
 
       </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Linux
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Linux
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/grub/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GRUB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/lvm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LVM
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/secugrub/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sécuriser GRUB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -501,17 +358,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Système
+    Linux
   
 
     
@@ -522,12 +379,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Système
+    Linux
   
 
           </label>
@@ -556,7 +413,7 @@
   <span class="md-ellipsis">
     
   
-    SSH
+    GRUB
   
 
     
@@ -567,14 +424,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="grub.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    SSH
+    GRUB
   
 
     
@@ -634,10 +491,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-installation-du-serveur-openssh-sur-debian" class="md-nav__link">
+  <a href="#etape-1-editer-lentree-de-demarrage-grub" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Installation du serveur OpenSSH (sur Debian)
+        Étape 1 : Éditer l'entrée de démarrage GRUB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-modifier-la-ligne-du-noyau-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Modifier la ligne du noyau (Kernel)
       
     </span>
   </a>
@@ -650,10 +518,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etape-2-creation-de-la-paire-de-cles-sur-votre-mac" class="md-nav__link">
+  <a href="#etape-5-passer-le-disque-en-lectureecriture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 : Création de la paire de clés (sur votre Mac)
+        Étape 5 : Passer le disque en Lecture/Écriture
       
     </span>
   </a>
@@ -661,32 +529,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etape-3-envoyer-la-cle-publique-sur-le-serveur" class="md-nav__link">
+  <a href="#etape-6-verification-finale-et-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 3 : Envoyer la clé publique sur le serveur
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-4-securisation-du-service-ssh-sur-debian" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 4 : Sécurisation du service SSH (sur Debian)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-5-application-des-regles-de-securite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 : Application des règles de sécurité
+        Étape 6 : Vérification finale et actions
       
     </span>
   </a>
@@ -708,6 +554,151 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lvm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="secugrub.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sécuriser GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Système
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Système
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Syst%C3%A8me/ssh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -781,10 +772,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-installation-du-serveur-openssh-sur-debian" class="md-nav__link">
+  <a href="#etape-1-editer-lentree-de-demarrage-grub" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Installation du serveur OpenSSH (sur Debian)
+        Étape 1 : Éditer l'entrée de démarrage GRUB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-modifier-la-ligne-du-noyau-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Modifier la ligne du noyau (Kernel)
       
     </span>
   </a>
@@ -797,10 +799,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etape-2-creation-de-la-paire-de-cles-sur-votre-mac" class="md-nav__link">
+  <a href="#etape-5-passer-le-disque-en-lectureecriture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 : Création de la paire de clés (sur votre Mac)
+        Étape 5 : Passer le disque en Lecture/Écriture
       
     </span>
   </a>
@@ -808,32 +810,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etape-3-envoyer-la-cle-publique-sur-le-serveur" class="md-nav__link">
+  <a href="#etape-6-verification-finale-et-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 3 : Envoyer la clé publique sur le serveur
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-4-securisation-du-service-ssh-sur-debian" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 4 : Sécurisation du service SSH (sur Debian)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-5-application-des-regles-de-securite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 : Application des règles de sécurité
+        Étape 6 : Vérification finale et actions
       
     </span>
   </a>
@@ -868,18 +848,17 @@
 
 
 
-<h1 id="configuration-et-securisation-du-serveur-ssh">Configuration et Sécurisation du Serveur SSH</h1>
+<h1 id="demarrage-de-secours-via-grub-shell-root">Démarrage de secours via GRUB (Shell Root)</h1>
 <blockquote>
 <p><strong>Objectif :</strong>
-Mettre en place un accès à distance sécurisé au serveur via le protocole SSH. L'objectif est de remplacer l'authentification classique par mot de passe (vulnérable aux attaques) par une authentification par clés cryptographiques (ED25519), et de bloquer l'accès direct au compte superadministrateur (<code>root</code>).</p>
+Accéder à un terminal root minimal (sans mot de passe) au démarrage de la machine, puis passer le disque dur en mode lecture/écriture pour pouvoir faire des modifications critiques, comme réinitialiser le mot de passe superadministrateur avec <code>passwd</code>.</p>
 </blockquote>
 <hr />
 <h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
-<p>L'accès physique à un serveur (clavier/écran) n'est utilisé que pour l'installation initiale ou en cas de panne majeure (comme vu avec GRUB). L'administration quotidienne se fait à distance via SSH.</p>
+<p>Cette procédure de dépannage est extrêmement puissante en cas de perte de mot de passe ou de casse du système. Cependant, elle nécessite un accès direct à la machine.</p>
 <p><strong>Éléments nécessaires :</strong>
-* Le serveur Debian 13 allumé et connecté au réseau.
-* Une machine cliente (votre Mac) avec un terminal ouvert.
-* L'adresse IP du serveur (ex: <code>172.16.52.100</code>).</p>
+* Un accès physique direct au serveur (clavier/écran) ou via la console de votre hyperviseur (VMware, Proxmox, etc.).
+* Un accès au menu GRUB au démarrage (et le mot de passe GRUB si vous l'avez sécurisé précédemment).</p>
 <h2 id="2-concepts-cles">2. Concepts Clés</h2>
 <table>
 <thead>
@@ -890,70 +869,83 @@ Mettre en place un accès à distance sécurisé au serveur via le protocole SSH
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>SSH (Secure Shell)</strong></td>
-<td style="text-align: left;">Protocole réseau permettant de se connecter à distance à une machine de manière chiffrée.</td>
+<td style="text-align: left;"><strong>Shell Root (<code>/bin/sh</code>)</strong></td>
+<td style="text-align: left;">Interpréteur de commandes minimaliste lancé avec les privilèges maximums (root).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>OpenSSH / sshd</strong></td>
-<td style="text-align: left;">Le logiciel (et son service en arrière-plan, le <em>daemon</em>) qui gère les connexions SSH sur le serveur.</td>
+<td style="text-align: left;"><strong>Read-Only (<code>ro</code>)</strong></td>
+<td style="text-align: left;">Mode "lecture seule" protégeant le système de fichiers contre toute modification.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Paire de clés</strong></td>
-<td style="text-align: left;">Système d'authentification comprenant une <strong>clé privée</strong> (qui reste secrète sur votre Mac) et une <strong>clé publique</strong> (que l'on dépose sur le serveur).</td>
+<td style="text-align: left;"><strong>Read-Write (<code>rw</code>)</strong></td>
+<td style="text-align: left;">Mode "lecture et écriture" permettant de modifier et sauvegarder les fichiers du système.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>ED25519</strong></td>
-<td style="text-align: left;">L'algorithme de chiffrement de clés elliptiques le plus moderne, rapide et sécurisé actuellement recommandé.</td>
+<td style="text-align: left;"><strong>Mount / Remount</strong></td>
+<td style="text-align: left;">Action d'attacher (ou de recharger avec de nouvelles options) un système de fichiers à Linux.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
-<h3 id="etape-1-installation-du-serveur-openssh-sur-debian">Étape 1 : Installation du serveur OpenSSH (sur Debian)</h3>
-<p>Connectez-vous physiquement à votre serveur (ou via la console de votre hyperviseur) et installez le paquet nécessaire :</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt install openssh-server
-</code></pre>
-<p>Vérifiez que le service est bien actif :</p>
-<pre><code class="language-bash">sudo systemctl status ssh
-</code></pre>
-<h2 id="etape-2-creation-de-la-paire-de-cles-sur-votre-mac">Étape 2 : Création de la paire de clés (sur votre Mac)</h2>
-<blockquote>
-<p>[!note] Action locale Cette commande doit être tapée <strong>sur votre ordinateur personnel (Mac)</strong>, pas sur le serveur Debian !</p>
-</blockquote>
-<p>Générez une nouvelle paire de clés cryptographiques :</p>
-<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;admin@imdeo&quot;
-</code></pre>
-<p><em>Appuyez sur "Entrée" pour accepter l'emplacement par défaut. Vous pouvez ajouter une "passphrase" (mot de passe protégeant votre clé privée) pour plus de sécurité.</em></p>
-<h2 id="etape-3-envoyer-la-cle-publique-sur-le-serveur">Étape 3 : Envoyer la clé publique sur le serveur</h2>
-<p>Utilisez la commande suivante depuis votre Mac pour copier votre clé publique vers le compte <code>etudiant</code> de votre serveur :</p>
-<pre><code class="language-bash">ssh-copy-id etudiant@172.16.52.100
-</code></pre>
-<p><em>Le terminal vous demandera le mot de passe de l'utilisateur <code>etudiant</code> une dernière fois pour autoriser le dépôt de la clé.</em></p>
-<p>Testez la connexion. Vous devriez maintenant pouvoir vous connecter sans taper le mot de passe du compte :</p>
-<pre><code class="language-bash">ssh etudiant@172.16.52.100
-</code></pre>
-<h2 id="etape-4-securisation-du-service-ssh-sur-debian">Étape 4 : Sécurisation du service SSH (sur Debian)</h2>
-<p>Maintenant que vous êtes connecté au serveur par clé, nous allons fermer les portes aux attaquants. Éditez le fichier de configuration SSH :</p>
-<pre><code class="language-bash">sudoedit /etc/ssh/sshd_config
-</code></pre>
-<p>Trouvez et modifiez (ou ajoutez) ces lignes importantes :</p>
-<blockquote>
-<p>[!warning] Attention Avant de mettre <code>PasswordAuthentication</code> sur <code>no</code>, assurez-vous à 100% que votre connexion par clé (Étape 3) fonctionne correctement, sinon vous allez vous enfermer dehors !</p>
-</blockquote>
-<pre><code class="language-bash"># Interdire la connexion directe en root (obligatoire de passer par un utilisateur standard puis de faire 'sudo')
-PermitRootLogin no
+<h3 id="etape-1-editer-lentree-de-demarrage-grub">Étape 1 : Éditer l'entrée de démarrage GRUB</h3>
+<ol>
+<li>Au démarrage de l'ordinateur/VM, lorsque le menu <strong>GRUB</strong> apparaît (la liste des systèmes d'exploitation), sélectionnez votre ligne Linux habituelle avec les flèches du clavier.</li>
+<li>Appuyez sur la touche <strong><code>e</code></strong> (pour <em>edit</em>). Cela ouvre l'éditeur de configuration de démarrage.</li>
+</ol>
+<hr />
+<h3 id="etape-2-modifier-la-ligne-du-noyau-kernel">Étape 2 : Modifier la ligne du noyau (Kernel)</h3>
+<ol>
+<li>Dans l'éditeur, cherchez la ligne qui commence par le mot <code>linux</code>, <code>linux16</code> ou <code>linuxefi</code> (selon votre distribution). C'est la ligne qui charge le noyau.</li>
+<li>Allez tout à la fin de cette longue ligne.</li>
+<li>Ajoutez l'instruction suivante (attention, c'est <code>init</code> et non <code>input</code>) :</li>
+</ol>
+<pre><code class="language-bash">init=/bin/sh
+````
 
-# Désactiver l'authentification par mot de passe (seules les clés sont acceptées)
-PasswordAuthentication no
+_(Note : On utilise aussi très souvent `init=/bin/bash`)_
+
+## Étape 3 : Démarrer le système
+
+1. Une fois la ligne modifiée, appuyez sur la touche **`F10`** (ou **`Ctrl + X`**).
+
+2. Le système va démarrer très rapidement et vous donner un invité de commande (shell) avec les droits **root** (affiché généralement sous la forme d'un `#`).
+
+
+## Étape 4 : Vérifier l'état du disque (Lecture seule)
+
+À ce stade, le système a démarré, mais le disque dur principal (la racine `/`) est protégé pour éviter les erreurs. Tapez la commande suivante :
+
+
+```bash
+mount | grep &quot; / &quot;
 </code></pre>
-<h2 id="etape-5-application-des-regles-de-securite">Étape 5 : Application des règles de sécurité</h2>
-<p>Redémarrez le service SSH pour appliquer les nouveaux paramètres de sécurité :</p>
-<pre><code class="language-bash">sudo systemctl restart ssh
+<p><em>(Ou tapez simplement <code>mount</code> et cherchez la ligne concernant <code>/</code>)</em></p>
+<p>Vous verrez la mention <strong><code>ro</code></strong> (Read-Only), ce qui signifie que le système est en <strong>lecture seule</strong>. Vous ne pouvez pas encore modifier de fichiers ou de mots de passe.</p>
+<h2 id="etape-5-passer-le-disque-en-lectureecriture">Étape 5 : Passer le disque en Lecture/Écriture</h2>
+<p>Pour pouvoir réparer le système ou modifier des fichiers, il faut "remonter" la racine avec les droits d'écriture. Tapez la commande magique :</p>
+<pre><code class="language-bash">mount -o remount,rw /
 </code></pre>
+<blockquote>
+<p>[!info] Explication <code>-o remount,rw</code> dit au système de remonter le disque actuel, mais cette fois en mode <strong>rw</strong>(Read-Write / Lecture-Écriture).</p>
+</blockquote>
+<h2 id="etape-6-verification-finale-et-actions">Étape 6 : Vérification finale et actions</h2>
+<p>Si vous retapez la commande de l'étape 4, vous verrez que le <code>ro</code> s'est transformé en <strong><code>rw</code></strong>. C'est gagné ! Vous pouvez maintenant faire vos manipulations.</p>
+<p><strong>Exemples d'actions possibles :</strong></p>
+<ul>
+<li>
+<p>Taper <code>passwd root</code> pour forcer un nouveau mot de passe.</p>
+</li>
+<li>
+<p>Éditer un fichier de configuration réseau ou fstab qui empêcherait la machine de démarrer.</p>
+</li>
+</ul>
+<blockquote>
+<p>[!warning] Attention : Redémarrage Une fois vos réparations terminées, la commande <code>reboot</code> classique risque de ne pas fonctionner dans ce mode restreint. Pour redémarrer proprement, tapez <code>exec /sbin/init</code> ou redémarrez la machine de force (bouton d'alimentation / interface hyperviseur).</p>
+</blockquote>
 <hr />
 <h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
 <ul>
-<li><a href="https://wiki.debian.org/fr/SSH">Wiki Debian - SSH</a></li>
+<li><a href="https://www.google.com/search?q=https://www.debian.org/doc/manuals/debian-handbook/sect.troubleshooting.fr.html&amp;authuser=1">Documentation Debian - Dépannage</a></li>
 </ul>
 
 
@@ -1013,10 +1005,10 @@ PasswordAuthentication no
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

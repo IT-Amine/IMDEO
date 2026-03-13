@@ -6,33 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Création et configuration d'un partitionnement souple LVM lors de l'installation de Debian.">
+        <meta name="description" content="Installer OpenSSH, se connecter à distance par clé cryptographique et sécuriser les accès.">
       
       
       
       
-        <link rel="prev" href="../grub/">
+        <link rel="prev" href="../Linux/secugrub.html">
       
-      
-        <link rel="next" href="../secugrub/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>Configuration LVM - Installation Debian 13 - IMDEO Docs</title>
+        <title>Configuration et Sécurisation du Serveur SSH - IMDEO Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration-lvm-installation-debian-13" class="md-skip">
+        <a href="#configuration-et-securisation-du-serveur-ssh" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration LVM - Installation Debian 13
+              Configuration et Sécurisation du Serveur SSH
             
           </span>
         </div>
@@ -218,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -235,13 +233,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../grub/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../Linux/grub.html" class="md-tabs__link">
           
   
   
@@ -257,11 +253,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Syst%C3%A8me/ssh/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="ssh.html" class="md-tabs__link">
           
   
   
@@ -295,7 +293,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -313,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -329,6 +327,151 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/grub.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/lvm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/secugrub.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sécuriser GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -358,17 +501,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Linux
+    Système
   
 
     
@@ -379,44 +522,16 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Linux
+    Système
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../grub/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GRUB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -441,7 +556,7 @@
   <span class="md-ellipsis">
     
   
-    LVM
+    SSH
   
 
     
@@ -452,14 +567,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="ssh.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    LVM
+    SSH
   
 
     
@@ -519,43 +634,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-creation-de-la-partition-damorcage-boot-hors-lvm" class="md-nav__link">
+  <a href="#etape-1-installation-du-serveur-openssh-sur-debian" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Création de la partition d'amorçage (/boot) hors LVM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-2-creation-des-volumes-logiques-lvm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 2 : Création des volumes logiques (LVM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 3 : Configuration des systèmes de fichiers et points de montage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-4-finalisation-de-linstallation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 4 : Finalisation de l'installation
+        Étape 1 : Installation du serveur OpenSSH (sur Debian)
       
     </span>
   </a>
@@ -564,6 +646,50 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-creation-de-la-paire-de-cles-sur-votre-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Création de la paire de clés (sur votre Mac)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-envoyer-la-cle-publique-sur-le-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Envoyer la clé publique sur le serveur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-securisation-du-service-ssh-sur-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Sécurisation du service SSH (sur Debian)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-application-des-regles-de-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Application des règles de sécurité
+      
+    </span>
+  </a>
   
 </li>
       
@@ -582,123 +708,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../secugrub/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sécuriser GRUB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Système
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Système
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Syst%C3%A8me/ssh/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SSH
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -772,43 +781,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-creation-de-la-partition-damorcage-boot-hors-lvm" class="md-nav__link">
+  <a href="#etape-1-installation-du-serveur-openssh-sur-debian" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Création de la partition d'amorçage (/boot) hors LVM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-2-creation-des-volumes-logiques-lvm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 2 : Création des volumes logiques (LVM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 3 : Configuration des systèmes de fichiers et points de montage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-4-finalisation-de-linstallation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 4 : Finalisation de l'installation
+        Étape 1 : Installation du serveur OpenSSH (sur Debian)
       
     </span>
   </a>
@@ -817,6 +793,50 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-creation-de-la-paire-de-cles-sur-votre-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Création de la paire de clés (sur votre Mac)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-envoyer-la-cle-publique-sur-le-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Envoyer la clé publique sur le serveur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-securisation-du-service-ssh-sur-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Sécurisation du service SSH (sur Debian)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-application-des-regles-de-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Application des règles de sécurité
+      
+    </span>
+  </a>
   
 </li>
       
@@ -848,19 +868,18 @@
 
 
 
-<h1 id="configuration-lvm-installation-debian-13">Configuration LVM - Installation Debian 13</h1>
+<h1 id="configuration-et-securisation-du-serveur-ssh">Configuration et Sécurisation du Serveur SSH</h1>
 <blockquote>
 <p><strong>Objectif :</strong>
-Abandonner le partitionnement rigide classique pour séparer logiquement les données critiques du système (racine, utilisateurs, variables système) à l'aide de l'outil LVM. Cela garantit qu'une partition pleine (comme <code>/var</code> avec des logs) ne bloquera pas le système entier, tout en conservant la capacité d'étendre ces espaces de stockage à chaud en cas de besoin futur.</p>
+Mettre en place un accès à distance sécurisé au serveur via le protocole SSH. L'objectif est de remplacer l'authentification classique par mot de passe (vulnérable aux attaques) par une authentification par clés cryptographiques (ED25519), et de bloquer l'accès direct au compte superadministrateur (<code>root</code>).</p>
 </blockquote>
 <hr />
 <h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
-<p>L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO nécessite une gestion de stockage souple, sécurisée et évolutive. Cette procédure détaille l'utilisation du <em>Logical Volume Manager</em> lors de la phase de partitionnement assistée de l'installateur Debian.</p>
+<p>L'accès physique à un serveur (clavier/écran) n'est utilisé que pour l'installation initiale ou en cas de panne majeure (comme vu avec GRUB). L'administration quotidienne se fait à distance via SSH.</p>
 <p><strong>Éléments nécessaires :</strong>
-* L'installateur Debian 13 en cours d'exécution.
-* Arrivée à l'étape "Partitionnement des disques".
-* Un ou plusieurs disques cibles vierges.</p>
-<hr />
+* Le serveur Debian 13 allumé et connecté au réseau.
+* Une machine cliente (votre Mac) avec un terminal ouvert.
+* L'adresse IP du serveur (ex: <code>172.16.52.100</code>).</p>
 <h2 id="2-concepts-cles">2. Concepts Clés</h2>
 <table>
 <thead>
@@ -871,113 +890,70 @@ Abandonner le partitionnement rigide classique pour séparer logiquement les don
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Physical Volumes (PV)</strong></td>
-<td style="text-align: left;">Disques physiques ou partitions servant de base pour LVM (HDD, SSD, etc.).</td>
+<td style="text-align: left;"><strong>SSH (Secure Shell)</strong></td>
+<td style="text-align: left;">Protocole réseau permettant de se connecter à distance à une machine de manière chiffrée.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Volume Groups (VG)</strong></td>
-<td style="text-align: left;">Regroupement de plusieurs PV en un seul espace logique (réservoir/pool).</td>
+<td style="text-align: left;"><strong>OpenSSH / sshd</strong></td>
+<td style="text-align: left;">Le logiciel (et son service en arrière-plan, le <em>daemon</em>) qui gère les connexions SSH sur le serveur.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Logical Volumes (LV)</strong></td>
-<td style="text-align: left;">Morceaux du VG formatés et montés pour stocker les données (flexibles).</td>
+<td style="text-align: left;"><strong>Paire de clés</strong></td>
+<td style="text-align: left;">Système d'authentification comprenant une <strong>clé privée</strong> (qui reste secrète sur votre Mac) et une <strong>clé publique</strong> (que l'on dépose sur le serveur).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Thin Provisioning</strong></td>
-<td style="text-align: left;">Création de volumes logiques sans allouer immédiatement tout l'espace.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Snapshots</strong></td>
-<td style="text-align: left;">Copies instantanées d'un volume logique (idéal pour sauvegarde ou test).</td>
+<td style="text-align: left;"><strong>ED25519</strong></td>
+<td style="text-align: left;">L'algorithme de chiffrement de clés elliptiques le plus moderne, rapide et sécurisé actuellement recommandé.</td>
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
-<h3 id="etape-1-creation-de-la-partition-damorcage-boot-hors-lvm">Étape 1 : Création de la partition d'amorçage (/boot) hors LVM</h3>
+<h3 id="etape-1-installation-du-serveur-openssh-sur-debian">Étape 1 : Installation du serveur OpenSSH (sur Debian)</h3>
+<p>Connectez-vous physiquement à votre serveur (ou via la console de votre hyperviseur) et installez le paquet nécessaire :</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install openssh-server
+</code></pre>
+<p>Vérifiez que le service est bien actif :</p>
+<pre><code class="language-bash">sudo systemctl status ssh
+</code></pre>
+<h2 id="etape-2-creation-de-la-paire-de-cles-sur-votre-mac">Étape 2 : Création de la paire de clés (sur votre Mac)</h2>
 <blockquote>
-<p>[!info] Explication
-Le chargeur d'amorçage (GRUB) doit pouvoir lire le noyau Linux avant même de charger les modules complexes comme LVM. Il faut donc obligatoirement créer une partition <code>/boot</code> standard en dehors de LVM.</p>
+<p>[!note] Action locale Cette commande doit être tapée <strong>sur votre ordinateur personnel (Mac)</strong>, pas sur le serveur Debian !</p>
 </blockquote>
-<ol>
-<li>Double-cliquez sur le disque physique cible.</li>
-<li>Choisissez <strong>Oui</strong> pour partitionner le disque entier (création d'une table de partition vierge).</li>
-<li>Double-cliquez sur l'espace libre apparu.</li>
-<li>Sélectionnez <strong>Créer une nouvelle partition</strong>.</li>
-<li>Saisissez <strong>1 GB</strong> (Taille recommandée pour conserver sereinement plusieurs versions du noyau).</li>
-<li>Choisissez le type <strong>Primaire</strong> et l'emplacement au <strong>Début</strong>.</li>
-<li>Configurez l'utilisation sur <strong>système de fichiers journalisé ext4</strong>.</li>
-<li>Configurez le point de montage sur <strong>/boot</strong>.</li>
-<li>Sélectionnez <strong>Fin du paramétrage de cette partition</strong>.</li>
-</ol>
-<h3 id="etape-2-creation-des-volumes-logiques-lvm">Étape 2 : Création des volumes logiques (LVM)</h3>
+<p>Générez une nouvelle paire de clés cryptographiques :</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;admin@imdeo&quot;
+</code></pre>
+<p><em>Appuyez sur "Entrée" pour accepter l'emplacement par défaut. Vous pouvez ajouter une "passphrase" (mot de passe protégeant votre clé privée) pour plus de sécurité.</em></p>
+<h2 id="etape-3-envoyer-la-cle-publique-sur-le-serveur">Étape 3 : Envoyer la clé publique sur le serveur</h2>
+<p>Utilisez la commande suivante depuis votre Mac pour copier votre clé publique vers le compte <code>etudiant</code> de votre serveur :</p>
+<pre><code class="language-bash">ssh-copy-id etudiant@172.16.52.100
+</code></pre>
+<p><em>Le terminal vous demandera le mot de passe de l'utilisateur <code>etudiant</code> une dernière fois pour autoriser le dépôt de la clé.</em></p>
+<p>Testez la connexion. Vous devriez maintenant pouvoir vous connecter sans taper le mot de passe du compte :</p>
+<pre><code class="language-bash">ssh etudiant@172.16.52.100
+</code></pre>
+<h2 id="etape-4-securisation-du-service-ssh-sur-debian">Étape 4 : Sécurisation du service SSH (sur Debian)</h2>
+<p>Maintenant que vous êtes connecté au serveur par clé, nous allons fermer les portes aux attaquants. Éditez le fichier de configuration SSH :</p>
+<pre><code class="language-bash">sudoedit /etc/ssh/sshd_config
+</code></pre>
+<p>Trouvez et modifiez (ou ajoutez) ces lignes importantes :</p>
 <blockquote>
-<p>[!info] Explication
-Nous allons transformer l'espace libre restant en un grand réservoir LVM (le VG), puis y découper nos différents volumes (les LV).</p>
+<p>[!warning] Attention Avant de mettre <code>PasswordAuthentication</code> sur <code>no</code>, assurez-vous à 100% que votre connexion par clé (Étape 3) fonctionne correctement, sinon vous allez vous enfermer dehors !</p>
 </blockquote>
-<ol>
-<li>Sélectionnez <strong>Configurer le gestionnaire de volumes logiques (LVM)</strong>.</li>
-<li>Confirmez l'écriture des changements sur le disque en sélectionnant <strong>Oui</strong>.</li>
-<li>Cliquez sur <strong>Créer un groupe de volumes</strong>, nommez-le (ex: <code>vg_imdeo</code> ou <code>vgsio1</code>), cochez l'espace libre restant sur le disque (le PV) et confirmez.</li>
-<li>Cliquez sur <strong>Créer un volume logique</strong>, sélectionnez le groupe de volumes parent (<code>vg_imdeo</code>), nommez le volume (ex: <code>lvhome</code>) et définissez sa taille (ex: <strong>5 GB</strong>).</li>
-<li>Répétez l'opération de création pour chaque volume requis selon le tableau ci-dessous :</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Nom du Volume</th>
-<th style="text-align: left;">Rôle principal</th>
-<th>Stockage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>lvroot</strong></td>
-<td style="text-align: left;">Volume pour la racine du système.</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>lvhome</strong></td>
-<td style="text-align: left;">Volume pour les utilisateurs.</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>lvvar</strong></td>
-<td style="text-align: left;">Volume pour les données variables/logs.</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>lvswap</strong></td>
-<td style="text-align: left;">Volume pour la mémoire virtuelle.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>Sélectionnez <strong>Terminer</strong> une fois tous les volumes créés.</li>
-</ol>
-<h3 id="etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage">Étape 3 : Configuration des systèmes de fichiers et points de montage</h3>
-<blockquote>
-<p>[!info] Explication
-Les conteneurs LVM sont prêts. Il faut maintenant les formater avec un système de fichiers et indiquer à Linux quel dossier système associer à quel volume.</p>
-</blockquote>
-<ol>
-<li>Sélectionnez le volume <strong>lvhome</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/home</strong>.</li>
-<li>Sélectionnez le volume <strong>lvroot</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/</strong>.</li>
-<li>Sélectionnez le volume <strong>lvvar</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/var</strong>.</li>
-<li>Sélectionnez le volume <strong>lvswap</strong> et choisissez l'utilisation comme <em>espace d'échange ("swap")</em>.</li>
-</ol>
-<h3 id="etape-4-finalisation-de-linstallation">Étape 4 : Finalisation de l'installation</h3>
-<ol>
-<li>Vérifiez attentivement le récapitulatif des partitions et des points de montage sur l'écran principal.</li>
-<li>Sélectionnez <strong>Terminer le partitionnement et appliquer les changements</strong>.</li>
-<li>Confirmez une dernière fois en choisissant <strong>Oui</strong> pour écrire les données sur les disques et poursuivre l'installation de Debian 13.</li>
-</ol>
+<pre><code class="language-bash"># Interdire la connexion directe en root (obligatoire de passer par un utilisateur standard puis de faire 'sudo')
+PermitRootLogin no
+
+# Désactiver l'authentification par mot de passe (seules les clés sont acceptées)
+PasswordAuthentication no
+</code></pre>
+<h2 id="etape-5-application-des-regles-de-securite">Étape 5 : Application des règles de sécurité</h2>
+<p>Redémarrez le service SSH pour appliquer les nouveaux paramètres de sécurité :</p>
+<pre><code class="language-bash">sudo systemctl restart ssh
+</code></pre>
 <hr />
 <h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
 <ul>
-<li><a href="https://www.debian.org/doc/manuals/debian-handbook/sect.installation-steps.fr.html">Documentation officielle de Debian - Partitionnement</a></li>
-<li>[[Sécurisation du Bootloader GRUB]]</li>
+<li><a href="https://wiki.debian.org/fr/SSH">Wiki Debian - SSH</a></li>
 </ul>
 
 
@@ -1037,10 +1013,10 @@ Les conteneurs LVM sont prêts. Il faut maintenant les formater avec un système
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

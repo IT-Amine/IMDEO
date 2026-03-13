@@ -6,33 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Accéder à un terminal root minimal au démarrage pour réparer le système ou réinitialiser un mot de passe.">
+        <meta name="description" content="Création et configuration d'un partitionnement souple LVM lors de l'installation de Debian.">
       
       
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="grub.html">
       
       
-        <link rel="next" href="../lvm/">
+        <link rel="next" href="secugrub.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>Démarrage de secours via GRUB (Shell Root) - IMDEO Docs</title>
+        <title>Configuration LVM - Installation Debian 13 - IMDEO Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#demarrage-de-secours-via-grub-shell-root" class="md-skip">
+        <a href="#configuration-lvm-installation-debian-13" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-header__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Démarrage de secours via GRUB (Shell Root)
+              Configuration LVM - Installation Debian 13
             
           </span>
         </div>
@@ -218,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -241,7 +241,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="grub.html" class="md-tabs__link">
           
   
   
@@ -261,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Syst%C3%A8me/ssh/" class="md-tabs__link">
+        <a href="../Syst%C3%A8me/ssh.html" class="md-tabs__link">
           
   
   
@@ -295,7 +295,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
+    <a href="../index.html" title="IMDEO Docs" class="md-nav__button md-logo" aria-label="IMDEO Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -313,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -394,6 +394,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="grub.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -413,7 +441,7 @@
   <span class="md-ellipsis">
     
   
-    GRUB
+    LVM
   
 
     
@@ -424,14 +452,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="lvm.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    GRUB
+    LVM
   
 
     
@@ -491,10 +519,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-editer-lentree-de-demarrage-grub" class="md-nav__link">
+  <a href="#etape-1-creation-de-la-partition-damorcage-boot-hors-lvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Éditer l'entrée de démarrage GRUB
+        Étape 1 : Création de la partition d'amorçage (/boot) hors LVM
       
     </span>
   </a>
@@ -502,10 +530,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-2-modifier-la-ligne-du-noyau-kernel" class="md-nav__link">
+  <a href="#etape-2-creation-des-volumes-logiques-lvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 : Modifier la ligne du noyau (Kernel)
+        Étape 2 : Création des volumes logiques (LVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Configuration des systèmes de fichiers et points de montage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-finalisation-de-linstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Finalisation de l'installation
       
     </span>
   </a>
@@ -514,28 +564,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-5-passer-le-disque-en-lectureecriture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 : Passer le disque en Lecture/Écriture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-6-verification-finale-et-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 6 : Vérification finale et actions
-      
-    </span>
-  </a>
   
 </li>
       
@@ -566,35 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lvm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LVM
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../secugrub/" class="md-nav__link">
+      <a href="secugrub.html" class="md-nav__link">
         
   
   
@@ -683,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Syst%C3%A8me/ssh/" class="md-nav__link">
+      <a href="../Syst%C3%A8me/ssh.html" class="md-nav__link">
         
   
   
@@ -772,10 +772,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-editer-lentree-de-demarrage-grub" class="md-nav__link">
+  <a href="#etape-1-creation-de-la-partition-damorcage-boot-hors-lvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 : Éditer l'entrée de démarrage GRUB
+        Étape 1 : Création de la partition d'amorçage (/boot) hors LVM
       
     </span>
   </a>
@@ -783,10 +783,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-2-modifier-la-ligne-du-noyau-kernel" class="md-nav__link">
+  <a href="#etape-2-creation-des-volumes-logiques-lvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 : Modifier la ligne du noyau (Kernel)
+        Étape 2 : Création des volumes logiques (LVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Configuration des systèmes de fichiers et points de montage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-finalisation-de-linstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Finalisation de l'installation
       
     </span>
   </a>
@@ -795,28 +817,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-5-passer-le-disque-en-lectureecriture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 : Passer le disque en Lecture/Écriture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#etape-6-verification-finale-et-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 6 : Vérification finale et actions
-      
-    </span>
-  </a>
   
 </li>
       
@@ -848,17 +848,19 @@
 
 
 
-<h1 id="demarrage-de-secours-via-grub-shell-root">Démarrage de secours via GRUB (Shell Root)</h1>
+<h1 id="configuration-lvm-installation-debian-13">Configuration LVM - Installation Debian 13</h1>
 <blockquote>
 <p><strong>Objectif :</strong>
-Accéder à un terminal root minimal (sans mot de passe) au démarrage de la machine, puis passer le disque dur en mode lecture/écriture pour pouvoir faire des modifications critiques, comme réinitialiser le mot de passe superadministrateur avec <code>passwd</code>.</p>
+Abandonner le partitionnement rigide classique pour séparer logiquement les données critiques du système (racine, utilisateurs, variables système) à l'aide de l'outil LVM. Cela garantit qu'une partition pleine (comme <code>/var</code> avec des logs) ne bloquera pas le système entier, tout en conservant la capacité d'étendre ces espaces de stockage à chaud en cas de besoin futur.</p>
 </blockquote>
 <hr />
 <h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
-<p>Cette procédure de dépannage est extrêmement puissante en cas de perte de mot de passe ou de casse du système. Cependant, elle nécessite un accès direct à la machine.</p>
+<p>L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO nécessite une gestion de stockage souple, sécurisée et évolutive. Cette procédure détaille l'utilisation du <em>Logical Volume Manager</em> lors de la phase de partitionnement assistée de l'installateur Debian.</p>
 <p><strong>Éléments nécessaires :</strong>
-* Un accès physique direct au serveur (clavier/écran) ou via la console de votre hyperviseur (VMware, Proxmox, etc.).
-* Un accès au menu GRUB au démarrage (et le mot de passe GRUB si vous l'avez sécurisé précédemment).</p>
+* L'installateur Debian 13 en cours d'exécution.
+* Arrivée à l'étape "Partitionnement des disques".
+* Un ou plusieurs disques cibles vierges.</p>
+<hr />
 <h2 id="2-concepts-cles">2. Concepts Clés</h2>
 <table>
 <thead>
@@ -869,83 +871,113 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Shell Root (<code>/bin/sh</code>)</strong></td>
-<td style="text-align: left;">Interpréteur de commandes minimaliste lancé avec les privilèges maximums (root).</td>
+<td style="text-align: left;"><strong>Physical Volumes (PV)</strong></td>
+<td style="text-align: left;">Disques physiques ou partitions servant de base pour LVM (HDD, SSD, etc.).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Read-Only (<code>ro</code>)</strong></td>
-<td style="text-align: left;">Mode "lecture seule" protégeant le système de fichiers contre toute modification.</td>
+<td style="text-align: left;"><strong>Volume Groups (VG)</strong></td>
+<td style="text-align: left;">Regroupement de plusieurs PV en un seul espace logique (réservoir/pool).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Read-Write (<code>rw</code>)</strong></td>
-<td style="text-align: left;">Mode "lecture et écriture" permettant de modifier et sauvegarder les fichiers du système.</td>
+<td style="text-align: left;"><strong>Logical Volumes (LV)</strong></td>
+<td style="text-align: left;">Morceaux du VG formatés et montés pour stocker les données (flexibles).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Mount / Remount</strong></td>
-<td style="text-align: left;">Action d'attacher (ou de recharger avec de nouvelles options) un système de fichiers à Linux.</td>
+<td style="text-align: left;"><strong>Thin Provisioning</strong></td>
+<td style="text-align: left;">Création de volumes logiques sans allouer immédiatement tout l'espace.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Snapshots</strong></td>
+<td style="text-align: left;">Copies instantanées d'un volume logique (idéal pour sauvegarde ou test).</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
-<h3 id="etape-1-editer-lentree-de-demarrage-grub">Étape 1 : Éditer l'entrée de démarrage GRUB</h3>
-<ol>
-<li>Au démarrage de l'ordinateur/VM, lorsque le menu <strong>GRUB</strong> apparaît (la liste des systèmes d'exploitation), sélectionnez votre ligne Linux habituelle avec les flèches du clavier.</li>
-<li>Appuyez sur la touche <strong><code>e</code></strong> (pour <em>edit</em>). Cela ouvre l'éditeur de configuration de démarrage.</li>
-</ol>
 <hr />
-<h3 id="etape-2-modifier-la-ligne-du-noyau-kernel">Étape 2 : Modifier la ligne du noyau (Kernel)</h3>
+<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
+<h3 id="etape-1-creation-de-la-partition-damorcage-boot-hors-lvm">Étape 1 : Création de la partition d'amorçage (/boot) hors LVM</h3>
+<blockquote>
+<p>[!info] Explication
+Le chargeur d'amorçage (GRUB) doit pouvoir lire le noyau Linux avant même de charger les modules complexes comme LVM. Il faut donc obligatoirement créer une partition <code>/boot</code> standard en dehors de LVM.</p>
+</blockquote>
 <ol>
-<li>Dans l'éditeur, cherchez la ligne qui commence par le mot <code>linux</code>, <code>linux16</code> ou <code>linuxefi</code> (selon votre distribution). C'est la ligne qui charge le noyau.</li>
-<li>Allez tout à la fin de cette longue ligne.</li>
-<li>Ajoutez l'instruction suivante (attention, c'est <code>init</code> et non <code>input</code>) :</li>
+<li>Double-cliquez sur le disque physique cible.</li>
+<li>Choisissez <strong>Oui</strong> pour partitionner le disque entier (création d'une table de partition vierge).</li>
+<li>Double-cliquez sur l'espace libre apparu.</li>
+<li>Sélectionnez <strong>Créer une nouvelle partition</strong>.</li>
+<li>Saisissez <strong>1 GB</strong> (Taille recommandée pour conserver sereinement plusieurs versions du noyau).</li>
+<li>Choisissez le type <strong>Primaire</strong> et l'emplacement au <strong>Début</strong>.</li>
+<li>Configurez l'utilisation sur <strong>système de fichiers journalisé ext4</strong>.</li>
+<li>Configurez le point de montage sur <strong>/boot</strong>.</li>
+<li>Sélectionnez <strong>Fin du paramétrage de cette partition</strong>.</li>
 </ol>
-<pre><code class="language-bash">init=/bin/sh
-````
-
-_(Note : On utilise aussi très souvent `init=/bin/bash`)_
-
-## Étape 3 : Démarrer le système
-
-1. Une fois la ligne modifiée, appuyez sur la touche **`F10`** (ou **`Ctrl + X`**).
-
-2. Le système va démarrer très rapidement et vous donner un invité de commande (shell) avec les droits **root** (affiché généralement sous la forme d'un `#`).
-
-
-## Étape 4 : Vérifier l'état du disque (Lecture seule)
-
-À ce stade, le système a démarré, mais le disque dur principal (la racine `/`) est protégé pour éviter les erreurs. Tapez la commande suivante :
-
-
-```bash
-mount | grep &quot; / &quot;
-</code></pre>
-<p><em>(Ou tapez simplement <code>mount</code> et cherchez la ligne concernant <code>/</code>)</em></p>
-<p>Vous verrez la mention <strong><code>ro</code></strong> (Read-Only), ce qui signifie que le système est en <strong>lecture seule</strong>. Vous ne pouvez pas encore modifier de fichiers ou de mots de passe.</p>
-<h2 id="etape-5-passer-le-disque-en-lectureecriture">Étape 5 : Passer le disque en Lecture/Écriture</h2>
-<p>Pour pouvoir réparer le système ou modifier des fichiers, il faut "remonter" la racine avec les droits d'écriture. Tapez la commande magique :</p>
-<pre><code class="language-bash">mount -o remount,rw /
-</code></pre>
+<h3 id="etape-2-creation-des-volumes-logiques-lvm">Étape 2 : Création des volumes logiques (LVM)</h3>
 <blockquote>
-<p>[!info] Explication <code>-o remount,rw</code> dit au système de remonter le disque actuel, mais cette fois en mode <strong>rw</strong>(Read-Write / Lecture-Écriture).</p>
+<p>[!info] Explication
+Nous allons transformer l'espace libre restant en un grand réservoir LVM (le VG), puis y découper nos différents volumes (les LV).</p>
 </blockquote>
-<h2 id="etape-6-verification-finale-et-actions">Étape 6 : Vérification finale et actions</h2>
-<p>Si vous retapez la commande de l'étape 4, vous verrez que le <code>ro</code> s'est transformé en <strong><code>rw</code></strong>. C'est gagné ! Vous pouvez maintenant faire vos manipulations.</p>
-<p><strong>Exemples d'actions possibles :</strong></p>
-<ul>
-<li>
-<p>Taper <code>passwd root</code> pour forcer un nouveau mot de passe.</p>
-</li>
-<li>
-<p>Éditer un fichier de configuration réseau ou fstab qui empêcherait la machine de démarrer.</p>
-</li>
-</ul>
+<ol>
+<li>Sélectionnez <strong>Configurer le gestionnaire de volumes logiques (LVM)</strong>.</li>
+<li>Confirmez l'écriture des changements sur le disque en sélectionnant <strong>Oui</strong>.</li>
+<li>Cliquez sur <strong>Créer un groupe de volumes</strong>, nommez-le (ex: <code>vg_imdeo</code> ou <code>vgsio1</code>), cochez l'espace libre restant sur le disque (le PV) et confirmez.</li>
+<li>Cliquez sur <strong>Créer un volume logique</strong>, sélectionnez le groupe de volumes parent (<code>vg_imdeo</code>), nommez le volume (ex: <code>lvhome</code>) et définissez sa taille (ex: <strong>5 GB</strong>).</li>
+<li>Répétez l'opération de création pour chaque volume requis selon le tableau ci-dessous :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nom du Volume</th>
+<th style="text-align: left;">Rôle principal</th>
+<th>Stockage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>lvroot</strong></td>
+<td style="text-align: left;">Volume pour la racine du système.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvhome</strong></td>
+<td style="text-align: left;">Volume pour les utilisateurs.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvvar</strong></td>
+<td style="text-align: left;">Volume pour les données variables/logs.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvswap</strong></td>
+<td style="text-align: left;">Volume pour la mémoire virtuelle.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Sélectionnez <strong>Terminer</strong> une fois tous les volumes créés.</li>
+</ol>
+<h3 id="etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage">Étape 3 : Configuration des systèmes de fichiers et points de montage</h3>
 <blockquote>
-<p>[!warning] Attention : Redémarrage Une fois vos réparations terminées, la commande <code>reboot</code> classique risque de ne pas fonctionner dans ce mode restreint. Pour redémarrer proprement, tapez <code>exec /sbin/init</code> ou redémarrez la machine de force (bouton d'alimentation / interface hyperviseur).</p>
+<p>[!info] Explication
+Les conteneurs LVM sont prêts. Il faut maintenant les formater avec un système de fichiers et indiquer à Linux quel dossier système associer à quel volume.</p>
 </blockquote>
+<ol>
+<li>Sélectionnez le volume <strong>lvhome</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/home</strong>.</li>
+<li>Sélectionnez le volume <strong>lvroot</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/</strong>.</li>
+<li>Sélectionnez le volume <strong>lvvar</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/var</strong>.</li>
+<li>Sélectionnez le volume <strong>lvswap</strong> et choisissez l'utilisation comme <em>espace d'échange ("swap")</em>.</li>
+</ol>
+<h3 id="etape-4-finalisation-de-linstallation">Étape 4 : Finalisation de l'installation</h3>
+<ol>
+<li>Vérifiez attentivement le récapitulatif des partitions et des points de montage sur l'écran principal.</li>
+<li>Sélectionnez <strong>Terminer le partitionnement et appliquer les changements</strong>.</li>
+<li>Confirmez une dernière fois en choisissant <strong>Oui</strong> pour écrire les données sur les disques et poursuivre l'installation de Debian 13.</li>
+</ol>
 <hr />
 <h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
 <ul>
-<li><a href="https://www.google.com/search?q=https://www.debian.org/doc/manuals/debian-handbook/sect.troubleshooting.fr.html&amp;authuser=1">Documentation Debian - Dépannage</a></li>
+<li><a href="https://www.debian.org/doc/manuals/debian-handbook/sect.installation-steps.fr.html">Documentation officielle de Debian - Partitionnement</a></li>
+<li>[[Sécurisation du Bootloader GRUB]]</li>
 </ul>
 
 
@@ -1005,10 +1037,10 @@ mount | grep &quot; / &quot;
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "search.suggest", "search.highlight", "search.share", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
