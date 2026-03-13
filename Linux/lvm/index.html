@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>LVM - IMDEO</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IMDEO</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Accueil</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Linux</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../grub/" class="dropdown-item">GRUB</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">LVM</a>
+</li>
+                                    
+<li>
+    <a href="../secugrub/" class="dropdown-item">Sécuriser GRUB</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Système</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Syst%C3%A8me/ssh/" class="dropdown-item">SSH</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../grub/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../secugrub/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#configuration-lvm-installation-debian-13" class="nav-link">Configuration LVM - Installation Debian 13</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-contexte-et-prerequis" class="nav-link">1. Contexte et Prérequis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-concepts-cles" class="nav-link">2. Concepts Clés</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-procedure-etape-par-etape" class="nav-link">3. Procédure étape par étape</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-ressources-et-liens-utiles" class="nav-link">4. Ressources et Liens utiles</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="configuration-lvm-installation-debian-13">Configuration LVM - Installation Debian 13</h1>
+<blockquote>
+<p><strong>Objectif :</strong>
+Abandonner le partitionnement rigide classique pour séparer logiquement les données critiques du système (racine, utilisateurs, variables système) à l'aide de l'outil LVM. Cela garantit qu'une partition pleine (comme <code>/var</code> avec des logs) ne bloquera pas le système entier, tout en conservant la capacité d'étendre ces espaces de stockage à chaud en cas de besoin futur.</p>
+</blockquote>
+<hr />
+<h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
+<p>L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO nécessite une gestion de stockage souple, sécurisée et évolutive. Cette procédure détaille l'utilisation du <em>Logical Volume Manager</em> lors de la phase de partitionnement assistée de l'installateur Debian.</p>
+<p><strong>Éléments nécessaires :</strong>
+* L'installateur Debian 13 en cours d'exécution.
+* Arrivée à l'étape "Partitionnement des disques".
+* Un ou plusieurs disques cibles vierges.</p>
+<hr />
+<h2 id="2-concepts-cles">2. Concepts Clés</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Terme</th>
+<th style="text-align: left;">Définition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Physical Volumes (PV)</strong></td>
+<td style="text-align: left;">Disques physiques ou partitions servant de base pour LVM (HDD, SSD, etc.).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volume Groups (VG)</strong></td>
+<td style="text-align: left;">Regroupement de plusieurs PV en un seul espace logique (réservoir/pool).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Logical Volumes (LV)</strong></td>
+<td style="text-align: left;">Morceaux du VG formatés et montés pour stocker les données (flexibles).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thin Provisioning</strong></td>
+<td style="text-align: left;">Création de volumes logiques sans allouer immédiatement tout l'espace.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Snapshots</strong></td>
+<td style="text-align: left;">Copies instantanées d'un volume logique (idéal pour sauvegarde ou test).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
+<h3 id="etape-1-creation-de-la-partition-damorcage-boot-hors-lvm">Étape 1 : Création de la partition d'amorçage (/boot) hors LVM</h3>
+<blockquote>
+<p>[!info] Explication
+Le chargeur d'amorçage (GRUB) doit pouvoir lire le noyau Linux avant même de charger les modules complexes comme LVM. Il faut donc obligatoirement créer une partition <code>/boot</code> standard en dehors de LVM.</p>
+</blockquote>
+<ol>
+<li>Double-cliquez sur le disque physique cible.</li>
+<li>Choisissez <strong>Oui</strong> pour partitionner le disque entier (création d'une table de partition vierge).</li>
+<li>Double-cliquez sur l'espace libre apparu.</li>
+<li>Sélectionnez <strong>Créer une nouvelle partition</strong>.</li>
+<li>Saisissez <strong>1 GB</strong> (Taille recommandée pour conserver sereinement plusieurs versions du noyau).</li>
+<li>Choisissez le type <strong>Primaire</strong> et l'emplacement au <strong>Début</strong>.</li>
+<li>Configurez l'utilisation sur <strong>système de fichiers journalisé ext4</strong>.</li>
+<li>Configurez le point de montage sur <strong>/boot</strong>.</li>
+<li>Sélectionnez <strong>Fin du paramétrage de cette partition</strong>.</li>
+</ol>
+<h3 id="etape-2-creation-des-volumes-logiques-lvm">Étape 2 : Création des volumes logiques (LVM)</h3>
+<blockquote>
+<p>[!info] Explication
+Nous allons transformer l'espace libre restant en un grand réservoir LVM (le VG), puis y découper nos différents volumes (les LV).</p>
+</blockquote>
+<ol>
+<li>Sélectionnez <strong>Configurer le gestionnaire de volumes logiques (LVM)</strong>.</li>
+<li>Confirmez l'écriture des changements sur le disque en sélectionnant <strong>Oui</strong>.</li>
+<li>Cliquez sur <strong>Créer un groupe de volumes</strong>, nommez-le (ex: <code>vg_imdeo</code> ou <code>vgsio1</code>), cochez l'espace libre restant sur le disque (le PV) et confirmez.</li>
+<li>Cliquez sur <strong>Créer un volume logique</strong>, sélectionnez le groupe de volumes parent (<code>vg_imdeo</code>), nommez le volume (ex: <code>lvhome</code>) et définissez sa taille (ex: <strong>5 GB</strong>).</li>
+<li>Répétez l'opération de création pour chaque volume requis selon le tableau ci-dessous :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nom du Volume</th>
+<th style="text-align: left;">Rôle principal</th>
+<th>Stockage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>lvroot</strong></td>
+<td style="text-align: left;">Volume pour la racine du système.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvhome</strong></td>
+<td style="text-align: left;">Volume pour les utilisateurs.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvvar</strong></td>
+<td style="text-align: left;">Volume pour les données variables/logs.</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>lvswap</strong></td>
+<td style="text-align: left;">Volume pour la mémoire virtuelle.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Sélectionnez <strong>Terminer</strong> une fois tous les volumes créés.</li>
+</ol>
+<h3 id="etape-3-configuration-des-systemes-de-fichiers-et-points-de-montage">Étape 3 : Configuration des systèmes de fichiers et points de montage</h3>
+<blockquote>
+<p>[!info] Explication
+Les conteneurs LVM sont prêts. Il faut maintenant les formater avec un système de fichiers et indiquer à Linux quel dossier système associer à quel volume.</p>
+</blockquote>
+<ol>
+<li>Sélectionnez le volume <strong>lvhome</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/home</strong>.</li>
+<li>Sélectionnez le volume <strong>lvroot</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/</strong>.</li>
+<li>Sélectionnez le volume <strong>lvvar</strong>, utilisez le <em>système de fichiers journalisé btrfs</em> et définissez le point de montage sur <strong>/var</strong>.</li>
+<li>Sélectionnez le volume <strong>lvswap</strong> et choisissez l'utilisation comme <em>espace d'échange ("swap")</em>.</li>
+</ol>
+<h3 id="etape-4-finalisation-de-linstallation">Étape 4 : Finalisation de l'installation</h3>
+<ol>
+<li>Vérifiez attentivement le récapitulatif des partitions et des points de montage sur l'écran principal.</li>
+<li>Sélectionnez <strong>Terminer le partitionnement et appliquer les changements</strong>.</li>
+<li>Confirmez une dernière fois en choisissant <strong>Oui</strong> pour écrire les données sur les disques et poursuivre l'installation de Debian 13.</li>
+</ol>
+<hr />
+<h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
+<ul>
+<li><a href="https://www.debian.org/doc/manuals/debian-handbook/sect.installation-steps.fr.html">Documentation officielle de Debian - Partitionnement</a></li>
+<li>[[Sécurisation du Bootloader GRUB]]</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
