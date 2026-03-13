@@ -6,6 +6,35 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  palette:
+    # Mode clair
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Passer au mode sombre
+    # Mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Passer au mode clair
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Accueil: index.md
