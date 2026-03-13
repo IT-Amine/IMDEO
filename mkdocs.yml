@@ -1,1 +1,17 @@
-site_name: My Docs
+site_name: IMDEO Docs
+site_description: Documentation technique IMDEO
+
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Accueil: index.md
+  - Linux:
+      - GRUB: Linux/grub.md
+      - LVM: Linux/lvm.md
+      - Sécuriser GRUB: Linux/secugrub.md
+  - Système:
+      - SSH: Système/ssh.md

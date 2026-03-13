@@ -10,124 +10,143 @@ tags:
   - imdeo
 date: 2026-03-13
 ---
-
 # Sécurisation du Bootloader GRUB
 
 > **Objectif :**
-> Empêcher une personne malveillante d'accéder au mode de secours (Single User) sans mot de passe en verrouillant l'accès aux paramètres d'amorçage de GRUB. Nous allons également configurer GRUB en AZERTY pour éviter les erreurs de frappe lors de la saisie du mot de passe.
+> Empêcher une personne malveillante d'accéder au mode de secours (Single User) sans mot de passe en verrouillant l'accès à l'édition des paramètres de démarrage. La procédure inclut la configuration de GRUB en AZERTY pour éviter les erreurs de frappe, et la sécurisation par empreinte cryptographique.
 
 ---
 
 ## 1. Contexte et Prérequis
 
-Par défaut, n'importe qui ayant un accès physique (ou console virtuelle) au serveur peut modifier les paramètres d'amorçage de GRUB au démarrage. Cela représente une faille critique de sécurité.
+Par défaut, n'importe qui ayant un accès physique au serveur peut modifier la séquence de démarrage de GRUB en appuyant sur la touche "e". Nous allons verrouiller cette fonctionnalité tout en permettant au serveur de démarrer normalement de façon autonome.
 
 **Éléments nécessaires :**
-* Un serveur sous GNU/Linux (ex: Debian 13)
-* Un accès avec des privilèges d'administration (`sudo` ou `root`)
+* Un serveur sous Debian (ou distribution GNU/Linux similaire).
+* Un accès avec des privilèges d'administration (`sudo` ou compte `root`).
 
 ## 2. Concepts Clés
 
 | Terme | Définition |
 | :--- | :--- |
-| **GRUB** | (GRand Unified Bootloader) Logiciel central qui amorce le démarrage du système et permet de choisir le noyau ou les options de boot. |
-| **Mode Single User** | Mode de secours (dépannage) de Linux permettant de se connecter en superadministrateur sans aucun mot de passe. |
-| **PBKDF2** | Algorithme de hachage robuste utilisé ici pour chiffrer et stocker le mot de passe GRUB en toute sécurité. |
+| **`grub-kbdcomp`** | Outil convertissant la disposition clavier du système vers le format reconnu par GRUB. |
+| **`--unrestricted`** | Paramètre indiquant à GRUB de démarrer le système d'exploitation par défaut sans demander de mot de passe, réservant l'authentification uniquement à la modification (touche "e"). |
+| **`PBKDF2`** | Algorithme de hachage robuste utilisé pour chiffrer l'empreinte de votre mot de passe afin de ne pas le stocker en clair dans les fichiers. |
+| **`superusers`** | Directive GRUB définissant le ou les comptes ayant le droit de modifier les paramètres d'amorçage. |
 
 
 ## 3. Procédure étape par étape
 
-### Étape 1 : Définir un clavier AZERTY pour GRUB
+### A. Configuration du clavier en AZERTY
 
-Par défaut, GRUB ne reconnaît que la disposition QWERTY. C'est problématique lorsqu'on définit un mot de passe complexe avec un clavier AZERTY.
-
-Créez le dossier pour les dispositions de clavier et générez le fichier en français :
+**Étape 1 : Création du répertoire des dispositions**
+Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le dossier cible pour héberger notre configuration française.
 ```bash
 sudo mkdir -p /boot/grub/layouts
+````
+
+> _`mkdir` crée le dossier cible. `sudo` exécute la commande avec les privilèges d'administration._
+
+**Étape 2 : Génération du fichier de disposition** On génère la disposition du clavier dans un fichier reconnu par GRUB :
+
+
+```bash
 sudo grub-kbdcomp -o /boot/grub/layouts/fr.gkb fr
 ```
 
----
+> _`grub-kbdcomp` convertit la disposition. `-o` définit le fichier de sortie, et `fr` indique la langue source._
 
-## Étape 2 : Déclarer le clavier dans les fichiers de configuration
-
-Éditez le fichier de configuration principal de GRUB :
+**Étape 3 : Modification des paramètres par défaut** Il faut indiquer à GRUB d'utiliser le clavier physique tel que configuré plutôt que l'entrée standard.
 
 
 ```bash
 sudoedit /etc/default/grub
 ```
 
-Ajoutez (ou modifiez) cette ligne à la fin du fichier :
+Ajoutez (ou modifiez) cette ligne dans le fichier :
 
+Plaintext
 
 ```bash
-GRUB_TERMINAL_INPUT=at_keyboard 
+GRUB_TERMINAL_INPUT=at_keyboard
 ```
 
-Ensuite, éditez le fichier de configuration personnalisé :
+**Étape 4 : Ajout du clavier dans la configuration personnalisée**
 
 
 ```bash
 sudoedit /etc/grub.d/40_custom
 ```
 
-Ajoutez ces lignes à la fin du fichier pour charger le module de clavier et appliquer le français :
+> [!warning] Attention : Emplacement du code Ajoutez ces lignes **APRÈS** le premier `exec` du fichier (et non le deuxième).
 
 
 ```bash
-# Clavier fr
 insmod keylayouts
 keymap fr
 ```
 
-Appliquez ces premiers changements :
+> _`insmod` insère le module gérant les dispositions, et `keymap fr` applique la cartographie française._
+
+**Étape 5 : Autoriser le démarrage normal du système** Nous allons modifier le générateur de script Debian pour ajouter une exception, afin que le serveur démarre tout seul sans demander le mot de passe à chaque allumage.
+
 
 ```bash
-sudo update-grub
+sudoedit /etc/grub.d/10_linux
 ```
 
-## Étape 3 : Génération du mot de passe haché
+Cherchez la variable `CLASS` (souvent située dans les 50 premières lignes) et ajoutez l'option `--unrestricted` à la fin de la chaîne :
 
-> [!warning] Attention Conservez précieusement le mot de passe que vous allez taper. Si vous le perdez, vous ne pourrez plus modifier les options de démarrage en cas de panne !
 
-Générez le hash de votre futur mot de passe avec la commande suivante :
+```bash
+CLASS="--class gnu-linux --class gnu --class os --unrestricted"
+```
+
+---
+
+## B. Création de l'utilisateur et du mot de passe
+
+**Étape 6 : Génération du condensat (hash) du mot de passe** La première étape consiste à obtenir l'empreinte cryptographique sécurisée de votre futur mot de passe GRUB.
 
 ```bash
 grub-mkpasswd-pbkdf2
 ```
 
-_Le terminal vous demandera de saisir et confirmer votre mot de passe. Copiez soigneusement la longue chaîne de caractères générée (qui commence par `grub.pbkdf2...`)._
+_L'outil vous invite à saisir un mot de passe. Copiez et conservez précieusement la longue chaîne générée (qui commence par `grub.pbkdf2...`)._
 
-## Étape 4 : Application du mot de passe à GRUB
+**Étape 7 : Définition des identifiants** Il faut ensuite fournir ce hash et un nom d'utilisateur dans le fichier de configuration personnalisé.
 
-Retournez dans le fichier de configuration personnalisé :
 
 ```bash
 sudoedit /etc/grub.d/40_custom
 ```
 
-Ajoutez les lignes suivantes à la fin du fichier (remplacez l'exemple de hash par celui que vous venez de copier) :
+Toujours après le premier `exec` (à la suite de votre configuration clavier), ajoutez :
+
 
 ```bash
-# Définition d'un utilisateur pour grub
-set superusers=adminsio
-# Remplacez la chaîne ci-dessous par votre propre hash
-password_pbkdf2 adminsio grub.pbkdf2.sha512.10000.C0F70D240A8BC5F...
+set superusers="adminsio"
+password_pbkdf2 adminsio <VOTRE_HASH_ICI>
 ```
 
-## Étape 5 : Mise à jour et Redémarrage
+> _`set superusers` définit "adminsio" comme compte administrateur GRUB. `password_pbkdf2` associe ce compte au mot de passe haché._
 
-Prenez en compte ces nouveaux paramètres sécurisés et redémarrez la machine pour tester :
+---
+
+## C. Application des modifications
+
+**Étape 8 : Mise à jour et redémarrage** Il reste enfin à prendre en compte ces nouveaux paramètres et à redémarrer le serveur pour tester la configuration.
+
 
 ```bash
 sudo update-grub
 sudo shutdown -r now
 ```
 
+> _`update-grub` compile les scripts du dossier `/etc/grub.d/` pour générer la configuration finale lue au démarrage. Dorénavant, une authentification sera demandée pour modifier la séquence de boot avec la touche "e"._
+
 ---
 
 ## 4. Ressources et Liens utiles
 
 - [Documentation officielle GNU GRUB](https://www.gnu.org/software/grub/manual/grub/grub.html)
-
