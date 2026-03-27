@@ -1,31 +1,41 @@
 site_name: IMDEO
+site_description: Documentation technique et administration système
+site_author: Amine Kada
 
 theme:
   name: material
+  language: fr
   palette:
     - scheme: default
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/weather-night
-        name: Mode sombre
+        icon: material/brightness-7
+        name: Passer au mode sombre
     - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/weather-sunny
-        name: Mode clair
+        icon: material/brightness-4
+        name: Passer au mode clair
   font:
     text: Inter
     code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.sections
+    - navigation.expand
     - navigation.top
+    - navigation.tracking
     - navigation.instant
     - search.highlight
+    - search.share
+    - search.suggest
     - content.code.copy
+    - content.action.edit
   icon:
-    logo: material/book-open-page-variant
+    logo: material/book-open-variant
+    repo: fontawesome/brands/github
 
 nav:
   - Accueil: index.md
@@ -33,15 +43,25 @@ nav:
       - GRUB: Linux/grub.md
       - LVM: Linux/lvm.md
   - Système:
-      - Sécuriser GRUB: Linux/secugrub.md
+      - Sécuriser GRUB: Système/secugrub.md
       - LVM Resize: Système/resize.md
       - SSH: Système/ssh.md
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.superfences
   - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.caret
   - admonition
   - pymdownx.details
   - attr_list
+  - md_in_html
+  - toc:
+      permalink: true

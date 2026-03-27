@@ -17,8 +17,8 @@ date: 2026-03-27
 > Cette procédure documente les opérations d'administration liées au gestionnaire de volumes logiques (LVM). Elle détaille l'extension de la capacité d'un volume existant par l'intégration d'un nouveau disque physique, ainsi que le provisionnement complet (création, formatage, montage persistant) d'un nouveau volume logique.
 
 ## Sommaire
-1. [Étendre la capacité d'un volume LVM existant](#1-Étendre-la-capacité-dun-volume-lvm-existant)
-2. [Créer et provisionner un nouveau volume logique](#2-créer-et-provisionner-un-nouveau-volume-logique)
+1. [Étendre la capacité d'un volume LVM existant](#1-etendre-la-capacite-dun-volume-lvm-existant)
+2. [Créer et provisionner un nouveau volume logique](#2-creer-et-provisionner-un-nouveau-volume-logique)
 
 ---
 
