@@ -10,14 +10,14 @@ tags:
 date: 2026-03-27
 ---
 
-# 🏢 Contexte Projet : IMDEO & Groupe Hervé
+# Contexte Projet : IMDEO & Groupe Hervé
 
 > [!info] La Mission
 > Votre travail consiste à répondre à plusieurs missions au sein de la SSII Hervé Consultant dans le cadre de la conception et à l'adaptation d'une infrastructure réseau. Ce projet s'inscrit dans le programme de conception des infrastructures réseaux.
 
 ---
 
-## 📋 Modalités du Projet
+## Modalités du Projet
 
 | Propriété | Détails |
 | :--- | :--- |
@@ -28,7 +28,7 @@ date: 2026-03-27
 
 ---
 
-## 🌐 Présentation du Groupe Hervé
+## Présentation du Groupe Hervé
 
 Le groupe Hervé, riche de 50 ans d'innovation et de croissance, a été créé en 1972 par Michel HERVÉ. Il s'agit d'un acteur majeur divisé en plusieurs sociétés expertes. 
 
@@ -40,7 +40,7 @@ Le groupe Hervé, riche de 50 ans d'innovation et de croissance, a été créé 
 
 ---
 
-## 🏗️ Les 3 Pôles d'Expertise
+## Les 3 Pôles d'Expertise
 
 Le groupe est structuré autour de trois grands secteurs d'activité :
 
