@@ -11,7 +11,7 @@ nav:
   - Linux:
       - GRUB: Linux/grub.md
       - LVM: Linux/lvm.md
-      - Sécuriser GRUB: Linux/secugrub.md
   - Système:
-      - SSH: Système/ssh.md
+      - Sécuriser GRUB: Linux/secugrub.md
       - LVM Resize: Système/resize.md
+      - SSH: Système/ssh.md
