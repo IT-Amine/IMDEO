@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="fr" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -9,8 +9,14 @@
         <meta name="description" content="Protéger l'amorçage du système en configurant un clavier AZERTY et un mot de passe GRUB.">
       
       
+        <meta name="author" content="Amine Kada">
       
       
+      
+        <link rel="prev" href="../../Linux/lvm/">
+      
+      
+        <link rel="next" href="../resize/">
       
       
         
@@ -73,7 +79,7 @@
       
         
         <a href="#securisation-du-bootloader-grub" class="md-skip">
-          Skip to content
+          Aller au contenu
         </a>
       
     </div>
@@ -85,11 +91,11 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="../.." title="IMDEO" class="md-header__button md-logo" aria-label="IMDEO" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.5c-1.35-.85-3.8-1.5-5.5-1.5-1.65 0-3.35.3-4.75 1.05-.1.05-.15.05-.25.05-.25 0-.5-.25-.5-.5V6c.6-.45 1.25-.75 2-1 1.11-.35 2.33-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5.75.25 1.4.55 2 1v14.6c0 .25-.25.5-.5.5-.1 0-.15 0-.25-.05-1.4-.75-3.1-1.05-4.75-1.05-1.7 0-4.15.65-5.5 1.5M12 8v11.5c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5V7c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5m1 3.5c1.11-.68 2.6-1 4.5-1 .91 0 1.76.09 2.5.28V9.23c-.87-.15-1.71-.23-2.5-.23q-2.655 0-4.5.84zm4.5.17c-1.71 0-3.21.26-4.5.79v1.69c1.11-.65 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24v-1.5c-.87-.16-1.71-.23-2.5-.23m2.5 2.9c-.87-.16-1.71-.24-2.5-.24-1.83 0-3.33.27-4.5.8v1.69c1.11-.66 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,20 +125,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -154,27 +160,34 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Recherche">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Partager" aria-label="Partager" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Initialisation de la recherche
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -195,7 +208,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -242,11 +255,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Linux/secugrub.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -283,7 +298,7 @@
     <a href="../.." title="IMDEO" class="md-nav__button md-logo" aria-label="IMDEO" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.5c-1.35-.85-3.8-1.5-5.5-1.5-1.65 0-3.35.3-4.75 1.05-.1.05-.15.05-.25.05-.25 0-.5-.25-.5-.5V6c.6-.45 1.25-.75 2-1 1.11-.35 2.33-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5.75.25 1.4.55 2 1v14.6c0 .25-.25.5-.5.5-.1 0-.15 0-.25-.05-1.4-.75-3.1-1.05-4.75-1.05-1.7 0-4.15.65-5.5 1.5M12 8v11.5c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5V7c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5m1 3.5c1.11-.68 2.6-1 4.5-1 .91 0 1.76.09 2.5.28V9.23c-.87-.15-1.71-.23-2.5-.23q-2.655 0-4.5.84zm4.5.17c-1.71 0-3.21.26-4.5.79v1.69c1.11-.65 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24v-1.5c-.87-.16-1.71-.23-2.5-.23m2.5 2.9c-.87-.16-1.71-.24-2.5-.24-1.83 0-3.33.27-4.5.8v1.69c1.11-.66 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24z"/></svg>
 
     </a>
     IMDEO
@@ -330,13 +345,17 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -435,24 +454,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -470,7 +496,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -485,10 +511,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Linux/secugrub.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sécuriser GRUB
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -504,6 +557,109 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexte-et-prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Contexte et Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-concepts-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Concepts Clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-procedure-etape-par-etape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Procédure étape par étape
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Procédure étape par étape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-configuration-du-clavier-en-azerty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Configuration du clavier en AZERTY
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-creation-de-lutilisateur-et-du-mot-de-passe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Création de l'utilisateur et du mot de passe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-application-des-modifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Application des modifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ressources-et-liens-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Ressources et Liens utiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,7 +741,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
   
   
   
@@ -594,7 +750,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Table des matières
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -698,13 +854,13 @@
 
 
 
-<h1 id="securisation-du-bootloader-grub">Sécurisation du Bootloader GRUB</h1>
+<h1 id="securisation-du-bootloader-grub">Sécurisation du Bootloader GRUB<a class="headerlink" href="#securisation-du-bootloader-grub" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Objectif :</strong>
 Empêcher une personne malveillante d'accéder au mode de secours (Single User) sans mot de passe en verrouillant l'accès à l'édition des paramètres de démarrage. La procédure inclut la configuration de GRUB en AZERTY pour éviter les erreurs de frappe, et la sécurisation par empreinte cryptographique.</p>
 </blockquote>
 <hr />
-<h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
+<h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis<a class="headerlink" href="#1-contexte-et-prerequis" title="Permanent link">&para;</a></h2>
 <p>Par défaut, n'importe qui ayant un accès physique au serveur peut modifier la séquence de démarrage de GRUB en appuyant sur la touche "e". Nous allons verrouiller cette fonctionnalité tout en permettant au serveur de démarrer normalement de façon autonome.</p>
 <p><strong>Éléments nécessaires :</strong></p>
 <ul>
@@ -715,7 +871,7 @@ Empêcher une personne malveillante d'accéder au mode de secours (Single User) 
 <p>Un accès avec des privilèges d'administration (<code>sudo</code> ou compte <code>root</code>).</p>
 </li>
 </ul>
-<h2 id="2-concepts-cles">2. Concepts Clés</h2>
+<h2 id="2-concepts-cles">2. Concepts Clés<a class="headerlink" href="#2-concepts-cles" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -742,73 +898,73 @@ Empêcher une personne malveillante d'accéder au mode de secours (Single User) 
 </tr>
 </tbody>
 </table>
-<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
-<h3 id="a-configuration-du-clavier-en-azerty">A. Configuration du clavier en AZERTY</h3>
+<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape<a class="headerlink" href="#3-procedure-etape-par-etape" title="Permanent link">&para;</a></h2>
+<h3 id="a-configuration-du-clavier-en-azerty">A. Configuration du clavier en AZERTY<a class="headerlink" href="#a-configuration-du-clavier-en-azerty" title="Permanent link">&para;</a></h3>
 <p><strong>Étape 1 : Création du répertoire des dispositions</strong>
 Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le dossier cible pour héberger notre configuration française.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/boot/grub/layouts
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/boot/grub/layouts
+</span></code></pre></div></p>
 <blockquote>
 <p><em><code>mkdir</code> crée le dossier cible. <code>sudo</code> exécute la commande avec les privilèges d'administration.</em></p>
 </blockquote>
 <p><strong>Étape 2 : Génération du fichier de disposition</strong> On génère la disposition du clavier dans un fichier reconnu par GRUB :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>grub-kbdcomp<span class="w"> </span>-o<span class="w"> </span>/boot/grub/layouts/fr.gkb<span class="w"> </span>fr
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>grub-kbdcomp<span class="w"> </span>-o<span class="w"> </span>/boot/grub/layouts/fr.gkb<span class="w"> </span>fr
+</span></code></pre></div>
 <blockquote>
 <p><em><code>grub-kbdcomp</code> convertit la disposition. <code>-o</code> définit le fichier de sortie, et <code>fr</code> indique la langue source.</em></p>
 </blockquote>
 <p><strong>Étape 3 : Modification des paramètres par défaut</strong> Il faut indiquer à GRUB d'utiliser le clavier physique tel que configuré plutôt que l'entrée standard.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudoedit<span class="w"> </span>/etc/default/grub
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudoedit<span class="w"> </span>/etc/default/grub
+</span></code></pre></div>
 <p>Ajoutez (ou modifiez) cette ligne dans le fichier :</p>
 <p>Plaintext</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">GRUB_TERMINAL_INPUT</span><span class="o">=</span>at_keyboard
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">GRUB_TERMINAL_INPUT</span><span class="o">=</span>at_keyboard
+</span></code></pre></div>
 <p><strong>Étape 4 : Ajout du clavier dans la configuration personnalisée</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/40_custom
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/40_custom
+</span></code></pre></div>
 <blockquote>
 <p>[!warning] Attention : Emplacement du code Ajoutez ces lignes <strong>APRÈS</strong> le premier <code>exec</code> du fichier (et non le deuxième).</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>insmod<span class="w"> </span>keylayouts
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>keymap<span class="w"> </span>fr
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>insmod<span class="w"> </span>keylayouts
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>keymap<span class="w"> </span>fr
+</span></code></pre></div>
 <blockquote>
 <p><em><code>insmod</code> insère le module gérant les dispositions, et <code>keymap fr</code> applique la cartographie française.</em></p>
 </blockquote>
 <p><strong>Étape 5 : Autoriser le démarrage normal du système</strong> Nous allons modifier le générateur de script Debian pour ajouter une exception, afin que le serveur démarre tout seul sans demander le mot de passe à chaque allumage.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/10_linux
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/10_linux
+</span></code></pre></div>
 <p>Cherchez la variable <code>CLASS</code> (souvent située dans les 50 premières lignes) et ajoutez l'option <code>--unrestricted</code> à la fin de la chaîne :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">CLASS</span><span class="o">=</span><span class="s2">&quot;--class gnu-linux --class gnu --class os --unrestricted&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">CLASS</span><span class="o">=</span><span class="s2">&quot;--class gnu-linux --class gnu --class os --unrestricted&quot;</span>
+</span></code></pre></div>
 <hr />
-<h2 id="b-creation-de-lutilisateur-et-du-mot-de-passe">B. Création de l'utilisateur et du mot de passe</h2>
+<h2 id="b-creation-de-lutilisateur-et-du-mot-de-passe">B. Création de l'utilisateur et du mot de passe<a class="headerlink" href="#b-creation-de-lutilisateur-et-du-mot-de-passe" title="Permanent link">&para;</a></h2>
 <p><strong>Étape 6 : Génération du condensat (hash) du mot de passe</strong> La première étape consiste à obtenir l'empreinte cryptographique sécurisée de votre futur mot de passe GRUB.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>grub-mkpasswd-pbkdf2
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>grub-mkpasswd-pbkdf2
+</span></code></pre></div>
 <p><em>L'outil vous invite à saisir un mot de passe. Copiez et conservez précieusement la longue chaîne générée (qui commence par <code>grub.pbkdf2...</code>).</em></p>
 <p><strong>Étape 7 : Définition des identifiants</strong> Il faut ensuite fournir ce hash et un nom d'utilisateur dans le fichier de configuration personnalisé.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/40_custom
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudoedit<span class="w"> </span>/etc/grub.d/40_custom
+</span></code></pre></div>
 <p>Toujours après le premier <code>exec</code> (à la suite de votre configuration clavier), ajoutez :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">set</span><span class="w"> </span><span class="nv">superusers</span><span class="o">=</span><span class="s2">&quot;adminsio&quot;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>password_pbkdf2<span class="w"> </span>adminsio<span class="w"> </span>&lt;VOTRE_HASH_ICI&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">set</span><span class="w"> </span><span class="nv">superusers</span><span class="o">=</span><span class="s2">&quot;adminsio&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>password_pbkdf2<span class="w"> </span>adminsio<span class="w"> </span>&lt;VOTRE_HASH_ICI&gt;
+</span></code></pre></div>
 <blockquote>
 <p><em><code>set superusers</code> définit "adminsio" comme compte administrateur GRUB. <code>password_pbkdf2</code> associe ce compte au mot de passe haché.</em></p>
 </blockquote>
 <hr />
-<h2 id="c-application-des-modifications">C. Application des modifications</h2>
+<h2 id="c-application-des-modifications">C. Application des modifications<a class="headerlink" href="#c-application-des-modifications" title="Permanent link">&para;</a></h2>
 <p><strong>Étape 8 : Mise à jour et redémarrage</strong> Il reste enfin à prendre en compte ces nouveaux paramètres et à redémarrer le serveur pour tester la configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>update-grub
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>update-grub
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
+</span></code></pre></div>
 <blockquote>
 <p><em><code>update-grub</code> compile les scripts du dossier <code>/etc/grub.d/</code> pour générer la configuration finale lue au démarrage. Dorénavant, une authentification sera demandée pour modifier la séquence de boot avec la touche "e".</em></p>
 </blockquote>
 <hr />
-<h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
+<h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles<a class="headerlink" href="#4-ressources-et-liens-utiles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.gnu.org/software/grub/manual/grub/grub.html">Documentation officielle GNU GRUB</a></li>
 </ul>
@@ -838,7 +994,7 @@ Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le 
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  Retour en haut de la page
 </button>
         
       </main>
@@ -870,7 +1026,7 @@ Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.instant", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

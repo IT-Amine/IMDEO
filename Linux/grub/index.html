@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="fr" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,6 +8,8 @@
       
         <meta name="description" content="Accéder à un terminal root minimal au démarrage pour réparer le système ou réinitialiser un mot de passe.">
       
+      
+        <meta name="author" content="Amine Kada">
       
       
       
@@ -77,7 +79,7 @@
       
         
         <a href="#demarrage-de-secours-via-grub-shell-root" class="md-skip">
-          Skip to content
+          Aller au contenu
         </a>
       
     </div>
@@ -89,11 +91,11 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="../.." title="IMDEO" class="md-header__button md-logo" aria-label="IMDEO" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.5c-1.35-.85-3.8-1.5-5.5-1.5-1.65 0-3.35.3-4.75 1.05-.1.05-.15.05-.25.05-.25 0-.5-.25-.5-.5V6c.6-.45 1.25-.75 2-1 1.11-.35 2.33-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5.75.25 1.4.55 2 1v14.6c0 .25-.25.5-.5.5-.1 0-.15 0-.25-.05-1.4-.75-3.1-1.05-4.75-1.05-1.7 0-4.15.65-5.5 1.5M12 8v11.5c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5V7c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5m1 3.5c1.11-.68 2.6-1 4.5-1 .91 0 1.76.09 2.5.28V9.23c-.87-.15-1.71-.23-2.5-.23q-2.655 0-4.5.84zm4.5.17c-1.71 0-3.21.26-4.5.79v1.69c1.11-.65 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24v-1.5c-.87-.16-1.71-.23-2.5-.23m2.5 2.9c-.87-.16-1.71-.24-2.5-.24-1.83 0-3.33.27-4.5.8v1.69c1.11-.66 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,20 +125,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -158,27 +160,34 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Recherche">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Partager" aria-label="Partager" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Initialisation de la recherche
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -199,7 +208,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -252,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../secugrub.md" class="md-tabs__link">
+        <a href="../../Syst%C3%A8me/secugrub/" class="md-tabs__link">
           
   
   
@@ -289,7 +298,7 @@
     <a href="../.." title="IMDEO" class="md-nav__button md-logo" aria-label="IMDEO" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.5c-1.35-.85-3.8-1.5-5.5-1.5-1.65 0-3.35.3-4.75 1.05-.1.05-.15.05-.25.05-.25 0-.5-.25-.5-.5V6c.6-.45 1.25-.75 2-1 1.11-.35 2.33-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5.75.25 1.4.55 2 1v14.6c0 .25-.25.5-.5.5-.1 0-.15 0-.25-.05-1.4-.75-3.1-1.05-4.75-1.05-1.7 0-4.15.65-5.5 1.5M12 8v11.5c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5V7c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5m1 3.5c1.11-.68 2.6-1 4.5-1 .91 0 1.76.09 2.5.28V9.23c-.87-.15-1.71-.23-2.5-.23q-2.655 0-4.5.84zm4.5.17c-1.71 0-3.21.26-4.5.79v1.69c1.11-.65 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24v-1.5c-.87-.16-1.71-.23-2.5-.23m2.5 2.9c-.87-.16-1.71-.24-2.5-.24-1.83 0-3.33.27-4.5.8v1.69c1.11-.66 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24z"/></svg>
 
     </a>
     IMDEO
@@ -340,6 +349,8 @@
         
         
       
+      
+        
       
     
     
@@ -432,7 +443,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
   
   
   
@@ -441,7 +452,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Table des matières
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -595,13 +606,17 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -640,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../secugrub.md" class="md-nav__link">
+      <a href="../../Syst%C3%A8me/secugrub/" class="md-nav__link">
         
   
   
@@ -737,7 +752,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
   
   
   
@@ -746,7 +761,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Table des matières
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -861,13 +876,13 @@
 
 
 
-<h1 id="demarrage-de-secours-via-grub-shell-root">Démarrage de secours via GRUB (Shell Root)</h1>
+<h1 id="demarrage-de-secours-via-grub-shell-root">Démarrage de secours via GRUB (Shell Root)<a class="headerlink" href="#demarrage-de-secours-via-grub-shell-root" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Objectif :</strong>
 Accéder à un terminal root minimal (sans mot de passe) au démarrage de la machine, puis passer le disque dur en mode lecture/écriture pour pouvoir faire des modifications critiques, comme réinitialiser le mot de passe superadministrateur avec <code>passwd</code>.</p>
 </blockquote>
 <hr />
-<h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
+<h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis<a class="headerlink" href="#1-contexte-et-prerequis" title="Permanent link">&para;</a></h2>
 <p>Cette procédure de dépannage est extrêmement puissante en cas de perte de mot de passe ou de casse du système. Cependant, elle nécessite un accès direct à la machine.</p>
 <p><strong>Éléments nécessaires :</strong></p>
 <ul>
@@ -878,7 +893,7 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
 <p>Un accès au menu GRUB au démarrage (et le mot de passe GRUB si vous l'avez sécurisé précédemment).</p>
 </li>
 </ul>
-<h2 id="2-concepts-cles">2. Concepts Clés</h2>
+<h2 id="2-concepts-cles">2. Concepts Clés<a class="headerlink" href="#2-concepts-cles" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -905,49 +920,49 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
 </tr>
 </tbody>
 </table>
-<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape</h2>
-<h3 id="etape-1-editer-lentree-de-demarrage-grub">Étape 1 : Éditer l'entrée de démarrage GRUB</h3>
+<h2 id="3-procedure-etape-par-etape">3. Procédure étape par étape<a class="headerlink" href="#3-procedure-etape-par-etape" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-editer-lentree-de-demarrage-grub">Étape 1 : Éditer l'entrée de démarrage GRUB<a class="headerlink" href="#etape-1-editer-lentree-de-demarrage-grub" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Au démarrage de l'ordinateur/VM, lorsque le menu <strong>GRUB</strong> apparaît (la liste des systèmes d'exploitation), sélectionnez votre ligne Linux habituelle avec les flèches du clavier.</li>
 <li>Appuyez sur la touche <strong><code>e</code></strong> (pour <em>edit</em>). Cela ouvre l'éditeur de configuration de démarrage.</li>
 </ol>
 <hr />
-<h3 id="etape-2-modifier-la-ligne-du-noyau-kernel">Étape 2 : Modifier la ligne du noyau (Kernel)</h3>
+<h3 id="etape-2-modifier-la-ligne-du-noyau-kernel">Étape 2 : Modifier la ligne du noyau (Kernel)<a class="headerlink" href="#etape-2-modifier-la-ligne-du-noyau-kernel" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Dans l'éditeur, cherchez la ligne qui commence par le mot <code>linux</code>, <code>linux16</code> ou <code>linuxefi</code> (selon votre distribution). C'est la ligne qui charge le noyau.</li>
 <li>Allez tout à la fin de cette longue ligne.</li>
 <li>Ajoutez l'instruction suivante (attention, c'est <code>init</code> et non <code>input</code>) :</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">init</span><span class="o">=</span>/bin/sh
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="sb">````</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>_<span class="o">(</span>Note<span class="w"> </span>:<span class="w"> </span>On<span class="w"> </span>utilise<span class="w"> </span>aussi<span class="w"> </span>très<span class="w"> </span>souvent<span class="w"> </span><span class="sb">`</span><span class="nv">init</span><span class="o">=</span>/bin/bash<span class="sb">`</span><span class="o">)</span>_
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">## Étape 3 : Démarrer le système</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="m">1</span>.<span class="w"> </span>Une<span class="w"> </span>fois<span class="w"> </span>la<span class="w"> </span>ligne<span class="w"> </span>modifiée,<span class="w"> </span>appuyez<span class="w"> </span>sur<span class="w"> </span>la<span class="w"> </span>touche<span class="w"> </span>**<span class="sb">`</span>F10<span class="sb">`</span>**<span class="w"> </span><span class="o">(</span>ou<span class="w"> </span>**<span class="sb">`</span>Ctrl<span class="w"> </span>+<span class="w"> </span>X<span class="sb">`</span>**<span class="o">)</span>.
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="m">2</span>.<span class="w"> </span>Le<span class="w"> </span>système<span class="w"> </span>va<span class="w"> </span>démarrer<span class="w"> </span>très<span class="w"> </span>rapidement<span class="w"> </span>et<span class="w"> </span>vous<span class="w"> </span>donner<span class="w"> </span>un<span class="w"> </span>invité<span class="w"> </span>de<span class="w"> </span>commande<span class="w"> </span><span class="o">(</span>shell<span class="o">)</span><span class="w"> </span>avec<span class="w"> </span>les<span class="w"> </span>droits<span class="w"> </span>**root**<span class="w"> </span><span class="o">(</span>affiché<span class="w"> </span>généralement<span class="w"> </span>sous<span class="w"> </span>la<span class="w"> </span>forme<span class="w"> </span>d<span class="s1">&#39;un `#`).</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s1">## Étape 4 : Vérifier l&#39;</span>état<span class="w"> </span>du<span class="w"> </span>disque<span class="w"> </span><span class="o">(</span>Lecture<span class="w"> </span>seule<span class="o">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>À<span class="w"> </span>ce<span class="w"> </span>stade,<span class="w"> </span>le<span class="w"> </span>système<span class="w"> </span>a<span class="w"> </span>démarré,<span class="w"> </span>mais<span class="w"> </span>le<span class="w"> </span>disque<span class="w"> </span>dur<span class="w"> </span>principal<span class="w"> </span><span class="o">(</span>la<span class="w"> </span>racine<span class="w"> </span><span class="sb">`</span>/<span class="sb">`</span><span class="o">)</span><span class="w"> </span>est<span class="w"> </span>protégé<span class="w"> </span>pour<span class="w"> </span>éviter<span class="w"> </span>les<span class="w"> </span>erreurs.<span class="w"> </span>Tapez<span class="w"> </span>la<span class="w"> </span>commande<span class="w"> </span>suivante<span class="w"> </span>:
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="sb">```</span>bash
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot; / &quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">init</span><span class="o">=</span>/bin/sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="sb">````</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>_<span class="o">(</span>Note<span class="w"> </span>:<span class="w"> </span>On<span class="w"> </span>utilise<span class="w"> </span>aussi<span class="w"> </span>très<span class="w"> </span>souvent<span class="w"> </span><span class="sb">`</span><span class="nv">init</span><span class="o">=</span>/bin/bash<span class="sb">`</span><span class="o">)</span>_
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">## Étape 3 : Démarrer le système</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="m">1</span>.<span class="w"> </span>Une<span class="w"> </span>fois<span class="w"> </span>la<span class="w"> </span>ligne<span class="w"> </span>modifiée,<span class="w"> </span>appuyez<span class="w"> </span>sur<span class="w"> </span>la<span class="w"> </span>touche<span class="w"> </span>**<span class="sb">`</span>F10<span class="sb">`</span>**<span class="w"> </span><span class="o">(</span>ou<span class="w"> </span>**<span class="sb">`</span>Ctrl<span class="w"> </span>+<span class="w"> </span>X<span class="sb">`</span>**<span class="o">)</span>.
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="m">2</span>.<span class="w"> </span>Le<span class="w"> </span>système<span class="w"> </span>va<span class="w"> </span>démarrer<span class="w"> </span>très<span class="w"> </span>rapidement<span class="w"> </span>et<span class="w"> </span>vous<span class="w"> </span>donner<span class="w"> </span>un<span class="w"> </span>invité<span class="w"> </span>de<span class="w"> </span>commande<span class="w"> </span><span class="o">(</span>shell<span class="o">)</span><span class="w"> </span>avec<span class="w"> </span>les<span class="w"> </span>droits<span class="w"> </span>**root**<span class="w"> </span><span class="o">(</span>affiché<span class="w"> </span>généralement<span class="w"> </span>sous<span class="w"> </span>la<span class="w"> </span>forme<span class="w"> </span>d<span class="s1">&#39;un `#`).</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s1">## Étape 4 : Vérifier l&#39;</span>état<span class="w"> </span>du<span class="w"> </span>disque<span class="w"> </span><span class="o">(</span>Lecture<span class="w"> </span>seule<span class="o">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>À<span class="w"> </span>ce<span class="w"> </span>stade,<span class="w"> </span>le<span class="w"> </span>système<span class="w"> </span>a<span class="w"> </span>démarré,<span class="w"> </span>mais<span class="w"> </span>le<span class="w"> </span>disque<span class="w"> </span>dur<span class="w"> </span>principal<span class="w"> </span><span class="o">(</span>la<span class="w"> </span>racine<span class="w"> </span><span class="sb">`</span>/<span class="sb">`</span><span class="o">)</span><span class="w"> </span>est<span class="w"> </span>protégé<span class="w"> </span>pour<span class="w"> </span>éviter<span class="w"> </span>les<span class="w"> </span>erreurs.<span class="w"> </span>Tapez<span class="w"> </span>la<span class="w"> </span>commande<span class="w"> </span>suivante<span class="w"> </span>:
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="sb">```</span>bash
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot; / &quot;</span>
+</span></code></pre></div>
 <p><em>(Ou tapez simplement <code>mount</code> et cherchez la ligne concernant <code>/</code>)</em></p>
 <p>Vous verrez la mention <strong><code>ro</code></strong> (Read-Only), ce qui signifie que le système est en <strong>lecture seule</strong>. Vous ne pouvez pas encore modifier de fichiers ou de mots de passe.</p>
-<h2 id="etape-5-passer-le-disque-en-lectureecriture">Étape 5 : Passer le disque en Lecture/Écriture</h2>
+<h2 id="etape-5-passer-le-disque-en-lectureecriture">Étape 5 : Passer le disque en Lecture/Écriture<a class="headerlink" href="#etape-5-passer-le-disque-en-lectureecriture" title="Permanent link">&para;</a></h2>
 <p>Pour pouvoir réparer le système ou modifier des fichiers, il faut "remonter" la racine avec les droits d'écriture. Tapez la commande magique :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/
+</span></code></pre></div>
 <blockquote>
 <p>[!info] Explication <code>-o remount,rw</code> dit au système de remonter le disque actuel, mais cette fois en mode <strong>rw</strong>(Read-Write / Lecture-Écriture).</p>
 </blockquote>
-<h2 id="etape-6-verification-finale-et-actions">Étape 6 : Vérification finale et actions</h2>
+<h2 id="etape-6-verification-finale-et-actions">Étape 6 : Vérification finale et actions<a class="headerlink" href="#etape-6-verification-finale-et-actions" title="Permanent link">&para;</a></h2>
 <p>Si vous retapez la commande de l'étape 4, vous verrez que le <code>ro</code> s'est transformé en <strong><code>rw</code></strong>. C'est gagné ! Vous pouvez maintenant faire vos manipulations.</p>
 <p><strong>Exemples d'actions possibles :</strong></p>
 <ul>
@@ -962,7 +977,7 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
 <p>[!warning] Attention : Redémarrage Une fois vos réparations terminées, la commande <code>reboot</code> classique risque de ne pas fonctionner dans ce mode restreint. Pour redémarrer proprement, tapez <code>exec /sbin/init</code> ou redémarrez la machine de force (bouton d'alimentation / interface hyperviseur).</p>
 </blockquote>
 <hr />
-<h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles</h2>
+<h2 id="4-ressources-et-liens-utiles">4. Ressources et Liens utiles<a class="headerlink" href="#4-ressources-et-liens-utiles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.google.com/search?q=https://www.debian.org/doc/manuals/debian-handbook/sect.troubleshooting.fr.html&amp;authuser=1">Documentation Debian - Dépannage</a></li>
 </ul>
@@ -992,7 +1007,7 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  Retour en haut de la page
 </button>
         
       </main>
@@ -1024,7 +1039,7 @@ Accéder à un terminal root minimal (sans mot de passe) au démarrage de la mac
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.instant", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
