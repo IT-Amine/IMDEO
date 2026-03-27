@@ -13,6 +13,8 @@
       
       
       
+        <link rel="prev" href="../ssh/">
+      
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>Configuration d'une connexion SSH sans mot de passe (Windows & macOS) - IMDEO</title>
+        <title>Partage Keys - IMDEO</title>
       
     
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration d'une connexion SSH sans mot de passe (Windows &amp; macOS)
+              Partage Keys
             
           </span>
         </div>
@@ -251,10 +253,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../secugrub/" class="md-tabs__link">
           
   
@@ -448,28 +452,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -487,7 +494,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -577,6 +584,175 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partage Keys
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partage Keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-comprendre-le-fonctionnement-des-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Comprendre le fonctionnement des clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verification-sur-le-poste-de-travail-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Vérification sur le poste de travail (Client)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Vérification sur le poste de travail (Client)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-utilisateurs-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les utilisateurs Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-utilisateurs-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les utilisateurs macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installation-de-la-cle-publique-sur-le-serveur-destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Installation de la clé publique sur le serveur (Destination)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-la-premiere-connexion-avertissement-de-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. La première connexion (Avertissement de sécurité)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-utilisation-au-quotidien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Utilisation au quotidien
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
