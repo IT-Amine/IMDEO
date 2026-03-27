@@ -118,7 +118,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#etape-2-creation-de-la-paire-de-cles-sur-votre-mac" class="nav-link">Étape 2 : Création de la paire de clés (sur votre Mac)</a>
+            <li class="nav-item" data-bs-level="2"><a href="#etape-2-creation-de-la-paire-de-cles-mac" class="nav-link">Étape 2 : Création de la paire de clés (Mac)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -153,10 +153,18 @@ Mettre en place un accès à distance sécurisé au serveur via le protocole SSH
 <hr />
 <h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
 <p>L'accès physique à un serveur (clavier/écran) n'est utilisé que pour l'installation initiale ou en cas de panne majeure (comme vu avec GRUB). L'administration quotidienne se fait à distance via SSH.</p>
-<p><strong>Éléments nécessaires :</strong>
-* Le serveur Debian 13 allumé et connecté au réseau.
-* Une machine cliente (votre Mac) avec un terminal ouvert.
-* L'adresse IP du serveur (ex: <code>172.16.52.100</code>).</p>
+<p><strong>Éléments nécessaires :</strong></p>
+<ul>
+<li>
+<p>Le serveur Debian 13 allumé et connecté au réseau.</p>
+</li>
+<li>
+<p>Une machine cliente (votre Mac) avec un terminal ouvert.</p>
+</li>
+<li>
+<p>L'adresse IP du serveur (ex: <code>172.16.52.100</code>).</p>
+</li>
+</ul>
 <h2 id="2-concepts-cles">2. Concepts Clés</h2>
 <table>
 <thead>
@@ -193,7 +201,7 @@ sudo apt install openssh-server
 <p>Vérifiez que le service est bien actif :</p>
 <pre><code class="language-bash">sudo systemctl status ssh
 </code></pre>
-<h2 id="etape-2-creation-de-la-paire-de-cles-sur-votre-mac">Étape 2 : Création de la paire de clés (sur votre Mac)</h2>
+<h2 id="etape-2-creation-de-la-paire-de-cles-mac">Étape 2 : Création de la paire de clés (Mac)</h2>
 <blockquote>
 <p>[!note] Action locale Cette commande doit être tapée <strong>sur votre ordinateur personnel (Mac)</strong>, pas sur le serveur Debian !</p>
 </blockquote>

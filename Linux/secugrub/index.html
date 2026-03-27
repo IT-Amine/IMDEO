@@ -145,9 +145,15 @@ Empêcher une personne malveillante d'accéder au mode de secours (Single User) 
 <hr />
 <h2 id="1-contexte-et-prerequis">1. Contexte et Prérequis</h2>
 <p>Par défaut, n'importe qui ayant un accès physique au serveur peut modifier la séquence de démarrage de GRUB en appuyant sur la touche "e". Nous allons verrouiller cette fonctionnalité tout en permettant au serveur de démarrer normalement de façon autonome.</p>
-<p><strong>Éléments nécessaires :</strong>
-* Un serveur sous Debian (ou distribution GNU/Linux similaire).
-* Un accès avec des privilèges d'administration (<code>sudo</code> ou compte <code>root</code>).</p>
+<p><strong>Éléments nécessaires :</strong></p>
+<ul>
+<li>
+<p>Un serveur sous Debian (ou distribution GNU/Linux similaire).</p>
+</li>
+<li>
+<p>Un accès avec des privilèges d'administration (<code>sudo</code> ou compte <code>root</code>).</p>
+</li>
+</ul>
 <h2 id="2-concepts-cles">2. Concepts Clés</h2>
 <table>
 <thead>
@@ -180,15 +186,12 @@ Empêcher une personne malveillante d'accéder au mode de secours (Single User) 
 <p><strong>Étape 1 : Création du répertoire des dispositions</strong>
 Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le dossier cible pour héberger notre configuration française.</p>
 <pre><code class="language-bash">sudo mkdir -p /boot/grub/layouts
-````
-
-&gt; _`mkdir` crée le dossier cible. `sudo` exécute la commande avec les privilèges d'administration._
-
-**Étape 2 : Génération du fichier de disposition** On génère la disposition du clavier dans un fichier reconnu par GRUB :
-
-
-```bash
-sudo grub-kbdcomp -o /boot/grub/layouts/fr.gkb fr
+</code></pre>
+<blockquote>
+<p><em><code>mkdir</code> crée le dossier cible. <code>sudo</code> exécute la commande avec les privilèges d'administration.</em></p>
+</blockquote>
+<p><strong>Étape 2 : Génération du fichier de disposition</strong> On génère la disposition du clavier dans un fichier reconnu par GRUB :</p>
+<pre><code class="language-bash">sudo grub-kbdcomp -o /boot/grub/layouts/fr.gkb fr
 </code></pre>
 <blockquote>
 <p><em><code>grub-kbdcomp</code> convertit la disposition. <code>-o</code> définit le fichier de sortie, et <code>fr</code> indique la langue source.</em></p>
