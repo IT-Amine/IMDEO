@@ -46,6 +46,7 @@ nav:
       - Sécuriser GRUB: Système/secugrub.md
       - LVM Resize: Système/resize.md
       - SSH: Système/ssh.md
+      - Partage Keys: Système/sshkeys.md
 
 markdown_extensions:
   - pymdownx.highlight:
