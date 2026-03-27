@@ -1,10 +1,31 @@
 site_name: IMDEO
 
 theme:
-  name: mkdocs
-
-extra_css:
-  - stylesheets/extra.css
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Mode sombre
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clair
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
+    - search.highlight
+    - content.code.copy
+  icon:
+    logo: material/book-open-page-variant
 
 nav:
   - Accueil: index.md
@@ -15,3 +36,12 @@ nav:
       - Sécuriser GRUB: Linux/secugrub.md
       - LVM Resize: Système/resize.md
       - SSH: Système/ssh.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+  - attr_list
