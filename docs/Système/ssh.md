@@ -24,8 +24,11 @@ date: 2026-03-13
 L'accès physique à un serveur (clavier/écran) n'est utilisé que pour l'installation initiale ou en cas de panne majeure (comme vu avec GRUB). L'administration quotidienne se fait à distance via SSH.
 
 **Éléments nécessaires :**
+
 * Le serveur Debian 13 allumé et connecté au réseau.
+
 * Une machine cliente (votre Mac) avec un terminal ouvert.
+
 * L'adresse IP du serveur (ex: `172.16.52.100`).
 
 
@@ -56,7 +59,7 @@ Vérifiez que le service est bien actif :
 sudo systemctl status ssh
 ```
 
-## Étape 2 : Création de la paire de clés (sur votre Mac)
+## Étape 2 : Création de la paire de clés (Mac)
 
 > [!note] Action locale Cette commande doit être tapée **sur votre ordinateur personnel (Mac)**, pas sur le serveur Debian !
 

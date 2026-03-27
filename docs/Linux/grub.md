@@ -17,7 +17,9 @@ date: 2026-03-13
 Cette procédure de dépannage est extrêmement puissante en cas de perte de mot de passe ou de casse du système. Cependant, elle nécessite un accès direct à la machine.
 
 **Éléments nécessaires :**
+
 * Un accès physique direct au serveur (clavier/écran) ou via la console de votre hyperviseur (VMware, Proxmox, etc.).
+
 * Un accès au menu GRUB au démarrage (et le mot de passe GRUB si vous l'avez sécurisé précédemment).
 
 ## 2. Concepts Clés

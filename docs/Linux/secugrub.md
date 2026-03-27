@@ -22,7 +22,9 @@ date: 2026-03-13
 Par défaut, n'importe qui ayant un accès physique au serveur peut modifier la séquence de démarrage de GRUB en appuyant sur la touche "e". Nous allons verrouiller cette fonctionnalité tout en permettant au serveur de démarrer normalement de façon autonome.
 
 **Éléments nécessaires :**
+
 * Un serveur sous Debian (ou distribution GNU/Linux similaire).
+
 * Un accès avec des privilèges d'administration (`sudo` ou compte `root`).
 
 ## 2. Concepts Clés
@@ -43,7 +45,7 @@ Par défaut, n'importe qui ayant un accès physique au serveur peut modifier la 
 Par défaut, GRUB ne reconnaît que le clavier en QWERTY. Nous allons créer le dossier cible pour héberger notre configuration française.
 ```bash
 sudo mkdir -p /boot/grub/layouts
-````
+```
 
 > _`mkdir` crée le dossier cible. `sudo` exécute la commande avec les privilèges d'administration._
 

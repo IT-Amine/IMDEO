@@ -23,8 +23,11 @@ date: 2026-03-13
 L'installation d'un serveur sous Debian 13 au sein de l'infrastructure IMDEO nécessite une gestion de stockage souple, sécurisée et évolutive. Cette procédure détaille l'utilisation du *Logical Volume Manager* lors de la phase de partitionnement assistée de l'installateur Debian.
 
 **Éléments nécessaires :**
+
 * L'installateur Debian 13 en cours d'exécution.
+
 * Arrivée à l'étape "Partitionnement des disques".
+
 * Un ou plusieurs disques cibles vierges.
 
 ---
