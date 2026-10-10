@@ -32,7 +32,7 @@ crypto pki token default removal timeout 0
 license udi pid CISCO1921/K9 sn FGL163021WM
 !
 !
-username fleur privilege 15 secret 4 eBDbgl52yuvngqrui.f6PukSMBPjpeRcNM3/JUERfkw
+username imdeo privilege 15 secret 4 MOT-DE-PASSE
 !
 !
 ip ssh version 2

@@ -10,7 +10,7 @@ boot-start-marker
 boot-end-marker
 !
 !
-username fleur privilege 15 secret 5 $1$PI2m$VQ9JXAVMI1Mag3dIaoTjr/
+username imdeo privilege 15 secret 5 MOT-DE-PASSE
 no aaa new-model
 system mtu routing 1500
 ip subnet-zero
